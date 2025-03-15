@@ -180,38 +180,38 @@
         let currentCategory = '';
         let currentImage = '';
 
-        function openCategory(category) {
-            document.getElementById('weapon-display').style.display = 'block';
-            document.getElementById('main-page').classList.add('page-hidden');
-            let weaponContent = document.getElementById('weapon-content');
-            weaponContent.innerHTML = '';
+ function openCategory(category) {
+    document.getElementById('weapon-display').style.display = 'block';
+    document.getElementById('main-page').classList.add('page-hidden');
+    let weaponContent = document.getElementById('weapon-content');
+    weaponContent.innerHTML = '';
 
-            // Зберігаємо вибрану категорію в localStorage
-            localStorage.setItem('selectedCategory', category);
-            currentCategory = category;
-            currentState = 'category';
+    // Зберігаємо вибрану категорію в localStorage
+    localStorage.setItem('selectedCategory', category);
+    currentCategory = category;
+    currentState = 'category';
+    
+    // Додаємо новий стан до історії браузера
+    history.pushState({state: 'category', category: category}, '', '#' + category);
+    
+    fetch(`/hunt_showdown_site/${category}/`)
+        .then(response => response.text())
+        .then(text => {
+            let parser = new DOMParser();
+            let doc = parser.parseFromString(text, 'text/html');
+            let files = Array.from(doc.querySelectorAll('a'))
+                .map(a => decodeURIComponent(a.href.split('/').pop())) // Декодуємо URL
+                .filter(file => file.match(/\.(jpg|png|jpeg)$/i));
             
-            // Додаємо новий стан до історії браузера
-            history.pushState({state: 'category', category: category}, '', '#' + category);
-            
-            fetch(`/${category}/`)
-                .then(response => response.text())
-                .then(text => {
-                    let parser = new DOMParser();
-                    let doc = parser.parseFromString(text, 'text/html');
-                    let files = Array.from(doc.querySelectorAll('a'))
-                        .map(a => decodeURIComponent(a.href.split('/').pop())) // Декодуємо URL
-                        .filter(file => file.match(/\.(jpg|png|jpeg)$/i));
-                    
-                    files.forEach(img => {
-                        let item = document.createElement('div');
-                        item.classList.add('weapon-item');
-                        item.innerHTML = `<img src='${category}/${encodeURIComponent(img)}' alt='${category} weapon' onclick='showFullImage("${category}/${encodeURIComponent(img)}", "${img}")'>
-                                        <div class='weapon-name'>${img.replace(/_/g, ' ').replace(/\..+$/, '')}</div>`;
-                        weaponContent.appendChild(item);
-                    });
-                });
-        }
+            files.forEach(img => {
+                let item = document.createElement('div');
+                item.classList.add('weapon-item');
+                item.innerHTML = `<img src='/hunt_showdown_site/${category}/${encodeURIComponent(img)}' alt='${category} weapon' onclick='showFullImage("/hunt_showdown_site/${category}/${encodeURIComponent(img)}", "${img}")'>
+                                <div class='weapon-name'>${img.replace(/_/g, ' ').replace(/\..+$/, '')}</div>`;
+                weaponContent.appendChild(item);
+            });
+        });
+}
 
         function closeCategory() {
             document.getElementById('weapon-display').style.display = 'none';
@@ -227,15 +227,15 @@
             }
         }
 
-        function showFullImage(src, imgName) {
-            document.getElementById('full-img').src = src;
-            document.getElementById('full-image').style.display = 'flex';
-            currentImage = imgName;
-            currentState = 'image';
-            
-            // Додаємо стан для перегляду зображення
-            history.pushState({state: 'image', category: currentCategory, image: imgName}, '', '#' + currentCategory + '/' + imgName);
-        }
+function showFullImage(src, imgName) {
+    document.getElementById('full-img').src = src;
+    document.getElementById('full-image').style.display = 'flex';
+    currentImage = imgName;
+    currentState = 'image';
+    
+    // Додаємо стан для перегляду зображення
+    history.pushState({state: 'image', category: currentCategory, image: imgName}, '', '#' + currentCategory + '/' + imgName);
+}
 
         function closeFullImage() {
             document.getElementById('full-image').style.display = 'none';
