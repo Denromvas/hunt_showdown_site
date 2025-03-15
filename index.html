@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hunt: Showdown Weapons</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #0e0e0e;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-image: url('background1.png');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+        .category {
+            width: 150px;
+            height: 100px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #fff;
+            cursor: pointer;
+            transition: transform 0.3s;
+            color: white;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+        .category:hover {
+            transform: scale(1.1);
+        }
+        .weapon-display {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            text-align: center;
+            padding-top: 50px;
+            overflow-y: auto; /* Додано для забезпечення скролу */
+            -webkit-overflow-scrolling: touch; /* Для плавного скролу на iOS */
+        }
+        .weapon-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding-bottom: 50px; /* Додано відступ знизу для зручності скролу */
+        }
+        .weapon-item {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s;
+            text-align: center;
+        }
+        .weapon-item img {
+            max-width: 200px;
+            height: auto;
+        }
+        .weapon-item:hover {
+            transform: scale(1.1);
+        }
+        .weapon-name {
+            margin-top: 5px;
+            color: white;
+            font-size: 14px;
+        }
+        .full-image {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000; /* Забезпечити, що це вікно буде поверх інших */
+        }
+        .full-image img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+        .close-btn, .close-full {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: red;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background 0.3s;
+            z-index: 1001; /* Щоб кнопка була поверх всього */
+        }
+        .close-btn:hover, .close-full:hover {
+            background: darkred;
+        }
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: #333;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background 0.3s;
+            z-index: 1001;
+        }
+        .back-btn:hover {
+            background: #555;
+        }
+        
+        /* Медіа-запит для мобільних пристроїв */
+        @media (max-width: 768px) {
+            .weapon-item img {
+                max-width: 150px;
+            }
+            .category {
+                width: 120px;
+                height: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="main-page">
+        <h1>Hunt: Showdown Weapons</h1>
+        <div class="categories">
+            <div class="category" onclick="openCategory('handguns')" style="background-image: url('handguns_bg.jpg');">Handguns</div>
+            <div class="category" onclick="openCategory('rifles')" style="background-image: url('rifles_bg.jpg');">Rifles</div>
+            <div class="category" onclick="openCategory('carbines')" style="background-image: url('carbines_bg.jpg');">Carbines</div>
+            <div class="category" onclick="openCategory('shotguns')" style="background-image: url('shotguns_bg.jpg');">Shotguns</div>
+            <div class="category" onclick="openCategory('melee')" style="background-image: url('melee_bg.jpg');">Melee Weapons</div>
+            <div class="category" onclick="openCategory('special')" style="background-image: url('special_bg.jpg');">Special Weapons</div>
+        </div>
+        <div id="weapon-display" class="weapon-display">
+            <button class="back-btn" onclick="closeCategory()">Back</button>
+            <button class="close-btn" onclick="closeCategory()">Close</button>
+            <div id="weapon-content" class="weapon-content"></div>
+        </div>
+        <div id="full-image" class="full-image">
+            <button class="back-btn" onclick="backToCategory()">Back</button>
+            <button class="close-full" onclick="closeFullImage()">Close</button>
+            <img id="full-img" src="" alt="Full view">
+        </div>
+    </div>
+    <script>
+        // Обробка історії для кнопки "назад" в браузері
+        let currentState = 'main';
+        let currentCategory = '';
+        let currentImage = '';
+
+        function openCategory(category) {
+            document.getElementById('weapon-display').style.display = 'block';
+            document.getElementById('main-page').classList.add('page-hidden');
+            let weaponContent = document.getElementById('weapon-content');
+            weaponContent.innerHTML = '';
+
+            // Зберігаємо вибрану категорію в localStorage
+            localStorage.setItem('selectedCategory', category);
+            currentCategory = category;
+            currentState = 'category';
+            
+            // Додаємо новий стан до історії браузера
+            history.pushState({state: 'category', category: category}, '', '#' + category);
+            
+            fetch(`/${category}/`)
+                .then(response => response.text())
+                .then(text => {
+                    let parser = new DOMParser();
+                    let doc = parser.parseFromString(text, 'text/html');
+                    let files = Array.from(doc.querySelectorAll('a'))
+                        .map(a => decodeURIComponent(a.href.split('/').pop())) // Декодуємо URL
+                        .filter(file => file.match(/\.(jpg|png|jpeg)$/i));
+                    
+                    files.forEach(img => {
+                        let item = document.createElement('div');
+                        item.classList.add('weapon-item');
+                        item.innerHTML = `<img src='${category}/${encodeURIComponent(img)}' alt='${category} weapon' onclick='showFullImage("${category}/${encodeURIComponent(img)}", "${img}")'>
+                                        <div class='weapon-name'>${img.replace(/_/g, ' ').replace(/\..+$/, '')}</div>`;
+                        weaponContent.appendChild(item);
+                    });
+                });
+        }
+
+        function closeCategory() {
+            document.getElementById('weapon-display').style.display = 'none';
+            document.getElementById('main-page').classList.remove('page-hidden');
+
+            // Видаляємо збережену категорію після закриття
+            localStorage.removeItem('selectedCategory');
+            currentState = 'main';
+            
+            // Якщо користувач закриває категорію через кнопку, повертаємось до головної сторінки в історії
+            if (history.state && history.state.state !== 'main') {
+                history.pushState({state: 'main'}, '', window.location.pathname);
+            }
+        }
+
+        function showFullImage(src, imgName) {
+            document.getElementById('full-img').src = src;
+            document.getElementById('full-image').style.display = 'flex';
+            currentImage = imgName;
+            currentState = 'image';
+            
+            // Додаємо стан для перегляду зображення
+            history.pushState({state: 'image', category: currentCategory, image: imgName}, '', '#' + currentCategory + '/' + imgName);
+        }
+
+        function closeFullImage() {
+            document.getElementById('full-image').style.display = 'none';
+            currentState = 'category';
+            
+            // Повертаємось до стану категорії
+            history.pushState({state: 'category', category: currentCategory}, '', '#' + currentCategory);
+        }
+
+        function backToCategory() {
+            document.getElementById('full-image').style.display = 'none';
+            currentState = 'category';
+        }
+
+        // Обробник події popstate для кнопки "назад" в браузері
+        window.addEventListener('popstate', function(event) {
+            if (event.state) {
+                if (event.state.state === 'main') {
+                    closeCategory();
+                    closeFullImage();
+                } else if (event.state.state === 'category') {
+                    closeFullImage();
+                    openCategory(event.state.category);
+                } else if (event.state.state === 'image') {
+                    showFullImage(`${event.state.category}/${encodeURIComponent(event.state.image)}`, event.state.image);
+                }
+            } else {
+                // Якщо немає стану (наприклад, перше завантаження), закриваємо всі відкриті вікна
+                closeCategory();
+                closeFullImage();
+            }
+        });
+
+        // Додаємо початковий стан до історії браузера
+        history.replaceState({state: 'main'}, '', window.location.pathname);
+
+        // Перевірка після завантаження сторінки
+        document.addEventListener('DOMContentLoaded', () => {
+            let savedCategory = localStorage.getItem('selectedCategory');
+            if (savedCategory) {
+                openCategory(savedCategory);
+            }
+            
+            // Перевіряємо хеш в URL для відновлення стану (якщо сторінка завантажена з хешем)
+            if (window.location.hash) {
+                let hash = window.location.hash.substring(1);
+                let parts = hash.split('/');
+                
+                if (parts.length === 1) {
+                    // Хеш містить лише категорію
+                    openCategory(parts[0]);
+                } else if (parts.length === 2) {
+                    // Хеш містить категорію та зображення
+                    openCategory(parts[0]);
+                    setTimeout(() => {
+                        showFullImage(`${parts[0]}/${encodeURIComponent(parts[1])}`, parts[1]);
+                    }, 500); // Невелика затримка, щоб дозволити категорії завантажитись
+                }
+            }
+        });
+
+        // Запобігаємо прокрутці основної сторінки, коли відкрито модальне вікно
+        function preventScroll(event) {
+            if (currentState !== 'main') {
+                event.preventDefault();
+            }
+        }
+
+        // Додавання класу для приховування сторінки
+        document.head.insertAdjacentHTML('beforeend', `
+            <style>
+                .page-hidden {
+                    overflow: hidden;
+                }
+            </style>
+        `);
+    </script>
+</body>
+</html>

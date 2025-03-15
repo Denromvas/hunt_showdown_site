@@ -1,0 +1,27 @@
+/hunt_showdown_site
+  ├── index.html
+  ├── styles.css
+  ├── handguns/
+  │   ├── handgun1.jpg
+  │   ├── handgun2.jpg
+  │   ├── handgun3.jpg
+  ├── rifles/
+  │   ├── rifle1.jpg
+  │   ├── rifle2.jpg
+  │   ├── rifle3.jpg
+  ├── carbines/
+  │   ├── carbine1.jpg
+  │   ├── carbine2.jpg
+  │   ├── carbine3.jpg
+  ├── shotguns/
+  │   ├── shotgun1.jpg
+  │   ├── shotgun2.jpg
+  │   ├── shotgun3.jpg
+  ├── melee/
+  │   ├── melee1.jpg
+  │   ├── melee2.jpg
+  │   ├── melee3.jpg
+  ├── special/
+  │   ├── special1.jpg
+  │   ├── special2.jpg
+  │   ├── special3.jpg
