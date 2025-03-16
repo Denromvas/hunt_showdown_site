@@ -434,83 +434,109 @@
         }
         
         // Функції для роботи з GitHub API
-        async function fetchJsonFile() {
-            showLoading(true, 'Завантаження даних з GitHub...');
-            
-            try {
-                // Отримуємо дані про файл, включаючи SHA
-                const url = `${API_BASE}/repos/${repoOwner}/${repoName}/contents/${FILE_PATH}`;
-                const response = await fetch(url, {
-                    headers: {
-                        'Authorization': `token ${githubToken}`,
-                        'Accept': 'application/vnd.github.v3+json'
-                    }
-                });
-                
-                if (!response.ok) {
-                    throw new Error(`GitHub API помилка: ${response.status}`);
-                }
-                
-                const fileData = await response.json();
-                fileSha = fileData.sha;
-                
-                // Декодуємо вміст з base64
-                const content = atob(fileData.content);
-                weaponsData = JSON.parse(content);
-                
+async function fetchJsonFile() {
+    showLoading(true, 'Завантаження даних з GitHub...');
+    
+    try {
+        // Отримуємо дані про файл, включаючи SHA
+        const url = `${API_BASE}/repos/${repoOwner}/${repoName}/contents/${FILE_PATH}`;
+        console.log('Запит до URL:', url);
+        
+        const response = await fetch(url, {
+            headers: {
+                'Authorization': `token ${githubToken}`,
+                'Accept': 'application/vnd.github.v3+json'
+            }
+        });
+        
+        console.log('Статус відповіді:', response.status);
+        
+        if (!response.ok) {
+            if (response.status === 404) {
+                console.log('Файл не знайдено, ініціалізуємо порожній об\'єкт');
+                weaponsData = {};
                 showLoading(false);
                 return weaponsData;
-            } catch (error) {
-                showLoading(false);
-                console.error('Помилка при отриманні JSON файлу:', error);
-                
-                // Якщо файл не знайдено, створюємо порожній об'єкт
-                if (error.message.includes('404')) {
-                    weaponsData = {};
-                    return weaponsData;
-                }
-                
-                throw error;
             }
+            
+            const errorText = await response.text();
+            console.error('Помилка відповіді:', errorText);
+            throw new Error(`GitHub API помилка: ${response.status}. ${errorText}`);
         }
         
-        async function updateJsonFile(jsonContent) {
-            showLoading(true, 'Збереження даних на GitHub...');
-            
-            try {
-                // Конвертуємо JSON в base64
-                const content = btoa(unescape(encodeURIComponent(jsonContent)));
-                
-                const url = `${API_BASE}/repos/${repoOwner}/${repoName}/contents/${FILE_PATH}`;
-                const response = await fetch(url, {
-                    method: 'PUT',
-                    headers: {
-                        'Authorization': `token ${githubToken}`,
-                        'Accept': 'application/vnd.github.v3+json',
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        message: 'Оновлено дані про зброю через адмін-панель',
-                        content: content,
-                        sha: fileSha
-                    })
-                });
-                
-                if (!response.ok) {
-                    throw new Error(`GitHub API помилка: ${response.status}`);
-                }
-                
-                const responseData = await response.json();
-                fileSha = responseData.content.sha;
-                
-                showLoading(false);
-                return true;
-            } catch (error) {
-                showLoading(false);
-                console.error('Помилка при оновленні JSON файлу:', error);
-                throw error;
-            }
+        const fileData = await response.json();
+        fileSha = fileData.sha;
+        
+        // Декодуємо вміст з base64
+        const content = atob(fileData.content.replace(/\n/g, ''));
+        weaponsData = JSON.parse(content);
+        
+        showLoading(false);
+        return weaponsData;
+    } catch (error) {
+        showLoading(false);
+        console.error('Повна помилка при отриманні JSON файлу:', error);
+        
+        alert(`Помилка при завантаженні даних: ${error.message}`);
+        
+        // Ініціалізуємо порожні дані у випадку помилки
+        weaponsData = {};
+        return weaponsData;
+    }
+}
+        
+async function updateJsonFile(jsonContent) {
+    showLoading(true, 'Збереження даних на GitHub...');
+    
+    try {
+        // Конвертуємо JSON в base64
+        const content = btoa(unescape(encodeURIComponent(jsonContent)));
+        
+        const url = `${API_BASE}/repos/${repoOwner}/${repoName}/contents/${FILE_PATH}`;
+        console.log('Запит на оновлення до URL:', url);
+        console.log('Наявність SHA:', fileSha ? 'Так' : 'Ні');
+        
+        // Тіло запиту
+        const requestBody = {
+            message: 'Оновлено дані про зброю через адмін-панель',
+            content: content
+        };
+        
+        // Додаємо SHA тільки якщо він є (для оновлення існуючого файлу)
+        if (fileSha) {
+            requestBody.sha = fileSha;
         }
+        
+        const response = await fetch(url, {
+            method: 'PUT',
+            headers: {
+                'Authorization': `token ${githubToken}`,
+                'Accept': 'application/vnd.github.v3+json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(requestBody)
+        });
+        
+        console.log('Статус відповіді:', response.status);
+        
+        if (!response.ok) {
+            const errorText = await response.text();
+            console.error('Помилка відповіді:', errorText);
+            throw new Error(`GitHub API помилка: ${response.status}. ${errorText}`);
+        }
+        
+        const responseData = await response.json();
+        fileSha = responseData.content.sha;
+        
+        showLoading(false);
+        return true;
+    } catch (error) {
+        showLoading(false);
+        console.error('Повна помилка при оновленні JSON файлу:', error);
+        alert(`Помилка при збереженні даних: ${error.message}`);
+        throw error;
+    }
+}
         
         // Функції для роботи з інтерфейсом
         function openTab(tabId) {
