@@ -10,7 +10,8 @@
         "damage": 104,
         "effectiveRange": 95,
         "rateOfFire": 40,
-        "muzzleVelocity": 300
+        "muzzleVelocity": 300,
+        "image": "Conversion.jpg"
       },
       {
         "ammoType": "FMG",
@@ -19,7 +20,7 @@
         "effectiveRange": 92,
         "rateOfFire": 40,
         "muzzleVelocity": 280,
-        "image": "Caldwell_FMG.jpg"
+        "image": "Conversion_FMG.jpg"
       }
     ]
   },
