@@ -313,10 +313,10 @@ function openCategory(category) {
                 const img = file.name;
                 const downloadUrl = file.download_url;
                 
-                let item = document.createElement('div');
-                item.classList.add('weapon-item');
-                item.innerHTML = `<img src='${downloadUrl}' alt='${category} weapon' onclick='showFullImage("${downloadUrl}", "${img}")'>
-                                <div class='weapon-name'>${img.replace(/_/g, ' ').replace(/\..+$/, '')}</div>`;
+let item = document.createElement('div');
+item.classList.add('weapon-item');
+item.innerHTML = `<img src='${downloadUrl}' alt='${category} weapon' onclick='showWeapon("${downloadUrl}", "${img}")'>
+                <div class='weapon-name'>${img.replace(/_/g, ' ').replace(/\..+$/, '')}</div>`;
                 weaponContent.appendChild(item);
             });
         })
@@ -338,29 +338,38 @@ function openCategory(category) {
             }
         }
 
-        function showWeapon(imgFile, weaponName) {
-            currentWeapon = weaponName;
-            currentAmmo = 'standard'; // За замовчуванням вибираємо стандартні набої
-            
-            // Показуємо зображення
-            showFullImage(`/hunt_showdown_site/${currentCategory}/${encodeURIComponent(imgFile)}`, weaponName);
-            
-            // Оновлюємо інформацію про зброю
-            updateWeaponDetails();
-        }
+function showWeapon(downloadUrl, imgName) {
+    // Отримуємо назву зброї з імені файлу
+    const weaponName = imgName.replace(/_/g, ' ').replace(/\..+$/, '');
+    currentWeapon = weaponName;
+    currentAmmo = 'standard'; // За замовчуванням вибираємо стандартні набої
+    
+    // Показуємо зображення
+    showFullImage(downloadUrl, imgName);
+    
+    // Оновлюємо інформацію про зброю
+    updateWeaponDetails();
+}
 
-        function showFullImage(src, imgName) {
-            document.getElementById('full-img').src = src;
-            document.getElementById('full-image').style.display = 'flex';
-            currentState = 'image';
-            
-            history.pushState({
-                state: 'image', 
-                category: currentCategory, 
-                image: imgName, 
-                weapon: currentWeapon
-            }, '', '#' + currentCategory + '/' + imgName);
-        }
+function showFullImage(src, imgName) {
+    document.getElementById('full-img').src = src;
+    document.getElementById('full-image').style.display = 'flex';
+    currentState = 'image';
+    
+    const weaponName = imgName.replace(/_/g, ' ').replace(/\..+$/, '');
+    currentWeapon = weaponName; // Встановлюємо поточну зброю
+    
+    history.pushState({
+        state: 'image', 
+        category: currentCategory, 
+        image: imgName, 
+        weapon: currentWeapon,
+        imageUrl: src
+    }, '', '#' + currentCategory + '/' + imgName);
+    
+    // Оновлюємо деталі зброї
+    updateWeaponDetails();
+}
 
         function closeFullImage() {
             document.getElementById('full-image').style.display = 'none';
@@ -452,22 +461,40 @@ function openCategory(category) {
             container.appendChild(statElement);
         }
         
-        function changeAmmoType(ammoType) {
-            currentAmmo = ammoType;
-            
-            // Оновлюємо активну кнопку
-            const buttons = document.querySelectorAll('.ammo-btn');
-            buttons.forEach(btn => {
-                if (btn.dataset.ammoType === ammoType) {
-                    btn.classList.add('active');
-                } else {
-                    btn.classList.remove('active');
-                }
-            });
-            
-            // Оновлюємо деталі зброї з новим типом набоїв
-            updateWeaponDetails();
+function changeAmmoType(ammoType) {
+    currentAmmo = ammoType;
+    
+    // Оновлюємо активну кнопку
+    const buttons = document.querySelectorAll('.ammo-btn');
+    buttons.forEach(btn => {
+        if (btn.dataset.ammoType === ammoType) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
         }
+    });
+    
+    // Оновлюємо деталі зброї з новим типом набоїв
+    updateWeaponDetails();
+    
+    // Оновлюємо зображення, якщо є
+    if (weaponsData && weaponsData[currentWeapon]) {
+        const weapon = weaponsData[currentWeapon];
+        const currentVariant = weapon.variants.find(v => v.ammoType === ammoType);
+        
+        if (currentVariant && currentVariant.image) {
+            // Використовуємо GitHub API для отримання URL зображення
+            fetch(`https://api.github.com/repos/Denromvas/hunt_showdown_site/contents/${currentCategory}/${currentVariant.image}`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('full-img').src = data.download_url;
+                })
+                .catch(error => {
+                    console.error('Помилка завантаження зображення для типу набоїв:', error);
+                });
+        }
+    }
+}
 
         // Обробник події popstate для кнопки "назад" в браузері
         window.addEventListener('popstate', function(event) {
