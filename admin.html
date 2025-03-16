@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hunt: Showdown - Адмін-панель</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0e0e0e;
+            color: #e0e0e0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .login-panel, .admin-panel {
+            background-color: #1e1e1e;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        h1, h2, h3 {
+            color: #d4af37;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            background-color: #333;
+            border: 1px solid #555;
+            color: #fff;
+            border-radius: 3px;
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #d4af37;
+        }
+        button {
+            background-color: #d4af37;
+            color: #000;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 3px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        button:hover {
+            background-color: #f5cc4d;
+        }
+        button.danger {
+            background-color: #a52a2a;
+            color: #fff;
+        }
+        button.danger:hover {
+            background-color: #d32f2f;
+        }
+        .hidden {
+            display: none;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 3px;
+        }
+        .success {
+            background-color: rgba(46, 125, 50, 0.2);
+            border-left: 4px solid #2e7d32;
+        }
+        .error {
+            background-color: rgba(198, 40, 40, 0.2);
+            border-left: 4px solid #c62828;
+        }
+        .weapon-list {
+            margin: 20px 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+        }
+        .weapon-card {
+            background-color: #333;
+            border-radius: 5px;
+            padding: 15px;
+            border-left: 4px solid #d4af37;
+        }
+        .weapon-card h3 {
+            margin-top: 0;
+            border-bottom: none;
+        }
+        .weapon-actions {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 10px;
+        }
+        .weapon-actions button {
+            padding: 5px 10px;
+            font-size: 0.8em;
+        }
+        .tab-nav {
+            display: flex;
+            background-color: #333;
+            border-radius: 5px 5px 0 0;
+            overflow: hidden;
+        }
+        .tab-link {
+            padding: 10px 15px;
+            background-color: #333;
+            border: none;
+            color: #e0e0e0;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .tab-link.active {
+            background-color: #d4af37;
+            color: #000;
+        }
+        .tab-content {
+            background-color: #333;
+            padding: 15px;
+            border-radius: 0 0 5px 5px;
+        }
+        .tab-panel {
+            display: none;
+        }
+        .tab-panel.active {
+            display: block;
+        }
+        .ammo-variant {
+            background-color: #2a2a2a;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 5px;
+            position: relative;
+        }
+        .remove-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #a52a2a;
+            color: #fff;
+            border: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        #jsonOutput {
+            width: 100%;
+            height: 300px;
+            background-color: #222;
+            color: #e0e0e0;
+            font-family: monospace;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #555;
+            border-radius: 3px;
+            resize: vertical;
+        }
+        .missing-data {
+            background-color: rgba(198, 40, 40, 0.2);
+            padding: 3px 6px;
+            border-radius: 3px;
+            font-size: 0.8em;
+            margin-left: 5px;
+        }
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #d4af37;
+            animation: spin 1s ease-in-out infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        .loading-content {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .loading-text {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hunt: Showdown - Адмін-панель</h1>
+        
+        <!-- Панель входу -->
+        <div id="loginPanel" class="login-panel">
+            <h2>Авторизація</h2>
+            <div class="form-group">
+                <label for="password">Пароль для доступу:</label>
+                <input type="password" id="password" placeholder="Введіть пароль">
+            </div>
+            <div class="form-group">
+                <label for="githubToken">GitHub токен (потрібен для редагування файлів):</label>
+                <input type="password" id="githubToken" placeholder="Введіть GitHub токен">
+                <p><small>Токен має мати дозвіл 'repo' для доступу до вашого репозиторію. <a href="https://github.com/settings/tokens" target="_blank" style="color: #d4af37;">Створити токен</a></small></p>
+            </div>
+            <div class="form-group">
+                <label for="repoOwner">Власник репозиторію:</label>
+                <input type="text" id="repoOwner" placeholder="Наприклад: Denromvas" value="Denromvas">
+            </div>
+            <div class="form-group">
+                <label for="repoName">Назва репозиторію:</label>
+                <input type="text" id="repoName" placeholder="Наприклад: hunt_showdown_site" value="hunt_showdown_site">
+            </div>
+            <button id="loginBtn">Увійти</button>
+            <div id="loginStatus" class="status hidden"></div>
+        </div>
+        
+        <!-- Панель адміністратора -->
+        <div id="adminPanel" class="admin-panel hidden">
+            <div class="tab-nav">
+                <button class="tab-link active" onclick="openTab('weaponListTab')">Список зброї</button>
+                <button class="tab-link" onclick="openTab('addWeaponTab')">Додати зброю</button>
+                <button class="tab-link" onclick="openTab('jsonEditorTab')">JSON редактор</button>
+            </div>
+            
+            <div class="tab-content">
+                <!-- Вкладка зі списком зброї -->
+                <div id="weaponListTab" class="tab-panel active">
+                    <h2>Наявна зброя</h2>
+                    <div id="weaponListStatus" class="status hidden"></div>
+                    <div id="weaponList" class="weapon-list">
+                        <p>Завантаження даних...</p>
+                    </div>
+                </div>
+                
+                <!-- Вкладка додавання зброї -->
+                <div id="addWeaponTab" class="tab-panel">
+                    <h2>Додати нову зброю</h2>
+                    <div class="form-group">
+                        <label for="weaponName">Назва зброї (відповідно до імені файлу):</label>
+                        <input type="text" id="weaponName" placeholder="Наприклад: Caldwell Conversion">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="category">Категорія:</label>
+                        <select id="category">
+                            <option value="handguns">Handguns</option>
+                            <option value="rifles">Rifles</option>
+                            <option value="carbines">Carbines</option>
+                            <option value="shotguns">Shotguns</option>
+                            <option value="melee">Melee</option>
+                            <option value="special">Special</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="price">Ціна:</label>
+                        <input type="number" id="price" placeholder="Ціна в доларах">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="unlockRank">Ранг відкриття:</label>
+                        <input type="number" id="unlockRank" placeholder="Ранг, на якому відкривається">
+                    </div>
+                    
+                    <h3>Варіанти набоїв</h3>
+                    <div id="ammoVariants"></div>
+                    
+                    <button id="addAmmoBtn">Додати варіант набоїв</button>
+                    <button id="addWeaponBtn">Зберегти зброю</button>
+                    <div id="addWeaponStatus" class="status hidden"></div>
+                </div>
+                
+                <!-- Вкладка JSON редактора -->
+                <div id="jsonEditorTab" class="tab-panel">
+                    <h2>Редагування JSON</h2>
+                    <p>Будьте обережні при ручному редагуванні JSON. Некоректний формат може призвести до помилок.</p>
+                    <div class="form-group">
+                        <textarea id="jsonOutput"></textarea>
+                    </div>
+                    <button id="updateJsonBtn">Оновити JSON на сервері</button>
+                    <button id="refreshJsonBtn">Оновити з сервера</button>
+                    <div id="jsonEditorStatus" class="status hidden"></div>
+                </div>
+            </div>
+            
+            <div class="form-group" style="margin-top: 20px;">
+                <button id="logoutBtn">Вийти</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Шаблон для варіанту набоїв -->
+    <template id="ammoVariantTemplate">
+        <div class="ammo-variant" id="variant-{id}">
+            <button class="remove-btn" onclick="removeVariant('variant-{id}')">×</button>
+            
+            <div class="form-group">
+                <label for="ammoType-{id}">Тип набоїв (ідентифікатор):</label>
+                <input type="text" id="ammoType-{id}" placeholder="Наприклад: standard">
+            </div>
+            
+            <div class="form-group">
+                <label for="ammoName-{id}">Назва набоїв:</label>
+                <input type="text" id="ammoName-{id}" placeholder="Наприклад: Стандартні набої">
+            </div>
+            
+            <div class="form-group">
+                <label for="damage-{id}">Пошкодження:</label>
+                <input type="number" id="damage-{id}" placeholder="Числове значення">
+            </div>
+            
+            <div class="form-group">
+                <label for="effectiveRange-{id}">Ефективна дальність (м):</label>
+                <input type="number" id="effectiveRange-{id}" placeholder="У метрах">
+            </div>
+            
+            <div class="form-group">
+                <label for="rateOfFire-{id}">Швидкість вогню (пострілів/хв):</label>
+                <input type="number" id="rateOfFire-{id}" placeholder="Пострілів за хвилину">
+            </div>
+            
+            <div class="form-group">
+                <label for="handleSpeed-{id}">Швидкість обробки:</label>
+                <input type="text" id="handleSpeed-{id}" placeholder="Наприклад: Середня">
+            </div>
+            
+            <div class="form-group">
+                <label for="reloadSpeed-{id}">Швидкість перезарядки:</label>
+                <input type="text" id="reloadSpeed-{id}" placeholder="Наприклад: Повільна">
+            </div>
+            
+            <div class="form-group">
+                <label for="muzzleVelocity-{id}">Швидкість кулі (м/с):</label>
+                <input type="number" id="muzzleVelocity-{id}" placeholder="У метрах за секунду">
+            </div>
+            
+            <div class="form-group">
+                <label for="image-{id}">Ім'я файлу зображення (залишити пустим для стандартного):</label>
+                <input type="text" id="image-{id}" placeholder="Наприклад: Caldwell_Conversion_Poison.jpg">
+            </div>
+        </div>
+    </template>
+    
+    <!-- Шаблон для картки зброї -->
+    <template id="weaponCardTemplate">
+        <div class="weapon-card">
+            <h3>{name}</h3>
+            <p>Категорія: {category}</p>
+            <p>Ціна: ${price}</p>
+            <p>Ранг відкриття: {unlockRank}</p>
+            <p>Варіанти набоїв: {ammoCount}</p>
+            <div class="weapon-actions">
+                <button onclick="editWeapon('{name}')">Редагувати</button>
+                <button class="danger" onclick="deleteWeapon('{name}')">Видалити</button>
+            </div>
+        </div>
+    </template>
+    
+    <!-- Overlay для завантаження -->
+    <div id="loadingOverlay" class="loading-overlay hidden">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <div class="loading-text">Завантаження...</div>
+        </div>
+    </div>
+    
+    <script>
+        // Константи для програми
+        const ADMIN_PASSWORD = 'hunt2024'; // Змініть на свій пароль
+        const API_BASE = 'https://api.github.com';
+        const FILE_PATH = 'weapons_data.json';
+        
+        // Глобальні змінні
+        let weaponsData = {};
+        let githubToken = '';
+        let repoOwner = '';
+        let repoName = '';
+        let fileSha = '';
+        
+        // Допоміжні функції
+        function showMessage(elementId, message, isError = false) {
+            const element = document.getElementById(elementId);
+            element.textContent = message;
+            element.classList.remove('hidden', 'success', 'error');
+            element.classList.add(isError ? 'error' : 'success');
+            
+            // Автоматично ховати повідомлення через 5 секунд
+            setTimeout(() => {
+                element.classList.add('hidden');
+            }, 5000);
+        }
+        
+        function showLoading(show = true, message = 'Завантаження...') {
+            const overlay = document.getElementById('loadingOverlay');
+            const textElement = overlay.querySelector('.loading-text');
+            
+            textElement.textContent = message;
+            
+            if (show) {
+                overlay.classList.remove('hidden');
+            } else {
+                overlay.classList.add('hidden');
+            }
+        }
+        
+        // Функції для роботи з GitHub API
+        async function fetchJsonFile() {
+            showLoading(true, 'Завантаження даних з GitHub...');
+            
+            try {
+                // Отримуємо дані про файл, включаючи SHA
+                const url = `${API_BASE}/repos/${repoOwner}/${repoName}/contents/${FILE_PATH}`;
+                const response = await fetch(url, {
+                    headers: {
+                        'Authorization': `token ${githubToken}`,
+                        'Accept': 'application/vnd.github.v3+json'
+                    }
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`GitHub API помилка: ${response.status}`);
+                }
+                
+                const fileData = await response.json();
+                fileSha = fileData.sha;
+                
+                // Декодуємо вміст з base64
+                const content = atob(fileData.content);
+                weaponsData = JSON.parse(content);
+                
+                showLoading(false);
+                return weaponsData;
+            } catch (error) {
+                showLoading(false);
+                console.error('Помилка при отриманні JSON файлу:', error);
+                
+                // Якщо файл не знайдено, створюємо порожній об'єкт
+                if (error.message.includes('404')) {
+                    weaponsData = {};
+                    return weaponsData;
+                }
+                
+                throw error;
+            }
+        }
+        
+        async function updateJsonFile(jsonContent) {
+            showLoading(true, 'Збереження даних на GitHub...');
+            
+            try {
+                // Конвертуємо JSON в base64
+                const content = btoa(unescape(encodeURIComponent(jsonContent)));
+                
+                const url = `${API_BASE}/repos/${repoOwner}/${repoName}/contents/${FILE_PATH}`;
+                const response = await fetch(url, {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': `token ${githubToken}`,
+                        'Accept': 'application/vnd.github.v3+json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        message: 'Оновлено дані про зброю через адмін-панель',
+                        content: content,
+                        sha: fileSha
+                    })
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`GitHub API помилка: ${response.status}`);
+                }
+                
+                const responseData = await response.json();
+                fileSha = responseData.content.sha;
+                
+                showLoading(false);
+                return true;
+            } catch (error) {
+                showLoading(false);
+                console.error('Помилка при оновленні JSON файлу:', error);
+                throw error;
+            }
+        }
+        
+        // Функції для роботи з інтерфейсом
+        function openTab(tabId) {
+            // Ховаємо всі вкладки
+            document.querySelectorAll('.tab-panel').forEach(panel => {
+                panel.classList.remove('active');
+            });
+            
+            // Знімаємо активний стан з усіх кнопок
+            document.querySelectorAll('.tab-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Показуємо вибрану вкладку
+            document.getElementById(tabId).classList.add('active');
+            
+            // Активуємо відповідну кнопку
+            const currentBtn = document.querySelector(`.tab-link[onclick="openTab('${tabId}')"]`);
+            currentBtn.classList.add('active');
+        }
+        
+        function renderWeaponList() {
+            const weaponListElement = document.getElementById('weaponList');
+            const template = document.getElementById('weaponCardTemplate').innerHTML;
+            
+            if (Object.keys(weaponsData).length === 0) {
+                weaponListElement.innerHTML = '<p>Немає доданої зброї. Перейдіть на вкладку "Додати зброю", щоб додати нову зброю.</p>';
+                return;
+            }
+            
+            let html = '';
+            
+            for (const weaponName in weaponsData) {
+                const weapon = weaponsData[weaponName];
+                
+                let weaponHtml = template
+                    .replace(/{name}/g, weaponName)
+                    .replace('{category}', weapon.category)
+                    .replace('{price}', weapon.price)
+                    .replace('{unlockRank}', weapon.unlockRank)
+                    .replace('{ammoCount}', weapon.variants ? weapon.variants.length : 0);
+                
+                html += weaponHtml;
+            }
+            
+            weaponListElement.innerHTML = html;
+        }
+        
+        function addAmmoVariant() {
+            const ammoVariantsContainer = document.getElementById('ammoVariants');
+            const template = document.getElementById('ammoVariantTemplate').innerHTML;
+            const variantId = Date.now(); // унікальний ідентифікатор
+            
+            const variantHTML = template.replace(/{id}/g, variantId);
+            ammoVariantsContainer.insertAdjacentHTML('beforeend', variantHTML);
+        }
+        
+        window.removeVariant = function(variantId) {
+            document.getElementById(variantId).remove();
+        };
+        
+        async function addWeapon() {
+            const weaponName = document.getElementById('weaponName').value.trim();
+            if (!weaponName) {
+                showMessage('addWeaponStatus', 'Помилка: Введіть назву зброї!', true);
+                return;
+            }
+            
+            const category = document.getElementById('category').value;
+            const price = parseInt(document.getElementById('price').value) || 0;
+            const unlockRank = parseInt(document.getElementById('unlockRank').value) || 1;
+            
+            // Отримуємо всі варіанти набоїв
+            const ammoVariants = document.querySelectorAll('.ammo-variant');
+            if (ammoVariants.length === 0) {
+                showMessage('addWeaponStatus', 'Помилка: Додайте хоча б один варіант набоїв!', true);
+                return;
+            }
+            
+            const variants = [];
+            
+            // Проходимо по всіх варіантах набоїв
+            ammoVariants.forEach(variant => {
+                const variantId = variant.id.replace('variant-', '');
+                
+                const ammoType = document.getElementById(`ammoType-${variantId}`).value.trim();
+                if (!ammoType) {
+                    showMessage('addWeaponStatus', 'Помилка: Заповніть тип набоїв для всіх варіантів!', true);
+                    return;
+                }
+                
+                const ammoName = document.getElementById(`ammoName-${variantId}`).value.trim();
+                const damage = parseInt(document.getElementById(`damage-${variantId}`).value) || 0;
+                const effectiveRange = parseInt(document.getElementById(`effectiveRange-${variantId}`).value) || 0;
+                const rateOfFire = parseInt(document.getElementById(`rateOfFire-${variantId}`).value) || 0;
+                const handleSpeed = document.getElementById(`handleSpeed-${variantId}`).value.trim();
+                const reloadSpeed = document.getElementById(`reloadSpeed-${variantId}`).value.trim();
+                const muzzleVelocity = parseInt(document.getElementById(`muzzleVelocity-${variantId}`).value) || 0;
+                const image = document.getElementById(`image-${variantId}`).value.trim();
+                
+                const variantData = {
+                    ammoType,
+                    ammoName,
+                    damage,
+                    effectiveRange,
+                    rateOfFire,
+                    handleSpeed,
+                    reloadSpeed,
+                    muzzleVelocity
+                };
+                
+                if (image) {
+                    variantData.image = image;
+                }
+                
+                variants.push(variantData);
+            });
+            
+            // Додаємо зброю до даних
+            weaponsData[weaponName] = {
+                category,
+                price,
+                unlockRank,
+                variants
+            };
+            
+            try {
+                // Оновлюємо JSON файл на GitHub
+                const jsonContent = JSON.stringify(weaponsData, null, 2);
+                await updateJsonFile(jsonContent);
+                
+                // Очищаємо форму
+                document.getElementById('weaponName').value = '';
+                document.getElementById('price').value = '';
+                document.getElementById('unlockRank').value = '';
+                document.getElementById('ammoVariants').innerHTML = '';
+                
+                // Додаємо порожній варіант набоїв
+                addAmmoVariant();
+                
+                // Оновлюємо JSON редактор
+                document.getElementById('jsonOutput').value = jsonContent;
+                
+                // Оновлюємо список зброї
+                renderWeaponList();
+                
+                showMessage('addWeaponStatus', `Зброю "${weaponName}" успішно додано!`);
+            } catch (error) {
+                showMessage('addWeaponStatus', `Помилка при збереженні: ${error.message}`, true);
+            }
+        }
+        
+        window.editWeapon = async function(weaponName) {
+            if (!weaponsData[weaponName]) {
+                return;
+            }
+            
+            // Переходимо на вкладку додавання зброї
+            openTab('addWeaponTab');
+            
+            const weapon = weaponsData[weaponName];
+            
+            // Заповнюємо форму даними про зброю
+            document.getElementById('weaponName').value = weaponName;
+            document.getElementById('category').value = weapon.category;
+            document.getElementById('price').value = weapon.price;
+            document.getElementById('unlockRank').value = weapon.unlockRank;
+            
+            // Очищаємо варіанти набоїв
+            document.getElementById('ammoVariants').innerHTML = '';
+            
+            // Додаємо варіанти набоїв
+            weapon.variants.forEach(variant => {
+                addAmmoVariant();
+                const variantId = document.querySelector('.ammo-variant:last-child').id.replace('variant-', '');
+                
+                document.getElementById(`ammoType-${variantId}`).value = variant.ammoType;
+                document.getElementById(`ammoName-${variantId}`).value = variant.ammoName;
+                document.getElementById(`damage-${variantId}`).value = variant.damage;
+                document.getElementById(`effectiveRange-${variantId}`).value = variant.effectiveRange;
+                document.getElementById(`rateOfFire-${variantId}`).value = variant.rateOfFire;
+                document.getElementById(`handleSpeed-${variantId}`).value = variant.handleSpeed;
+                document.getElementById(`reloadSpeed-${variantId}`).value = variant.reloadSpeed;
+                document.getElementById(`muzzleVelocity-${variantId}`).value = variant.muzzleVelocity;
+                
+                if (variant.image) {
+                    document.getElementById(`image-${variantId}`).value = variant.image;
+                }
+            });
+            
+            showMessage('addWeaponStatus', `Редагування зброї "${weaponName}". Внесіть зміни та натисніть "Зберегти зброю".`);
+        };
+        
+        window.deleteWeapon = async function(weaponName) {
+            if (!confirm(`Ви впевнені, що хочете видалити зброю "${weaponName}"?`)) {
+                return;
+            }
+            
+            try {
+                delete weaponsData[weaponName];
+                
+                // Оновлюємо JSON файл на GitHub
+                const jsonContent = JSON.stringify(weaponsData, null, 2);
+                await updateJsonFile(jsonContent);
+                
+                // Оновлюємо JSON редактор
+                document.getElementById('jsonOutput').value = jsonContent;
+                
+                // Оновлюємо список зброї
+                renderWeaponList();
+                
+                showMessage('weaponListStatus', `Зброю "${weaponName}" успішно видалено!`);
+            } catch (error) {
+                showMessage('weaponListStatus', `Помилка при видаленні: ${error.message}`, true);
+            }
+        };
+        
+        // Обробники подій
+        document.getElementById('loginBtn').addEventListener('click', async function() {
+            const password = document.getElementById('password').value;
+            if (password !== ADMIN_PASSWORD) {
+                showMessage('loginStatus', 'Помилка: Неправильний пароль!', true);
+                return;
+            }
+            
+            githubToken = document.getElementById('githubToken').value;
+            if (!githubToken) {
+                showMessage('loginStatus', 'Помилка: GitHub токен обов\'язковий для роботи з API!', true);
+                return;
+            }
+            
+            repoOwner = document.getElementById('repoOwner').value;
+            repoName = document.getElementById('repoName').value;
+            
+            if (!repoOwner || !repoName) {
+                showMessage('loginStatus', 'Помилка: Вкажіть власника та назву репозиторію!', true);
+                return;
+            }
+            
+            try {
+                // Перевіряємо доступ до API
+                await fetchJsonFile();
+                
+                // Ховаємо панель входу і показуємо адмін-панель
+                document.getElementById('loginPanel').classList.add('hidden');
+                document.getElementById('adminPanel').classList.remove('hidden');
+                
+                // Оновлюємо список зброї
+                renderWeaponList();
+                
+                // Оновлюємо JSON редактор
+                document.getElementById('jsonOutput').value = JSON.stringify(weaponsData, null, 2);
+                
+                // Додаємо порожній варіант набоїв
+                addAmmoVariant();
+                
+            } catch (error) {
+                showMessage('loginStatus', `Помилка при вході: ${error.message}`, true);
+            }
+        });
+        
+        document.getElementById('logoutBtn').addEventListener('click', function() {
+            // Ховаємо адмін-панель і показуємо панель входу
+            document.getElementById('adminPanel').classList.add('hidden');
+            document.getElementById('loginPanel').classList.remove('hidden');
+            
+            // Очищаємо поля з конфіденційними даними
+            document.getElementById('password').value = '';
+            document.getElementById('githubToken').value = '';
+            
+            // Очищаємо глобальні змінні
+            weaponsData = {};
+            githubToken = '';
+            fileSha = '';
+        });
+        
+        document.getElementById('addAmmoBtn').addEventListener('click', function() {
+            addAmmoVariant();
+        });
+        
+        document.getElementById('addWeaponBtn').addEventListener('click', function() {
+            addWeapon();
+        });
+        
+        document.getElementById('updateJsonBtn').addEventListener('click', async function() {
+            const jsonContent = document.getElementById('jsonOutput').value;
+            
+            try {
+                // Перевіряємо, що JSON валідний
+                weaponsData = JSON.parse(jsonContent);
+                
+                // Оновлюємо JSON файл на GitHub
+                await updateJsonFile(jsonContent);
+                
+                // Оновлюємо список зброї
+                renderWeaponList();
+                
+                showMessage('jsonEditorStatus', 'JSON успішно оновлено!');
+            } catch (error) {
+                showMessage('jsonEditorStatus', `Помилка: ${error.message}`, true);
+            }
+        });
+        
+        document.getElementById('refreshJsonBtn').addEventListener('click', async function() {
+            try {
+                await fetchJsonFile();
+                document.getElementById('jsonOutput').value = JSON.stringify(weaponsData, null, 2);
+                showMessage('jsonEditorStatus', 'Дані оновлено з GitHub!');
+            } catch (error) {
+                showMessage('jsonEditorStatus', `Помилка: ${error.message}`, true);
+            }
+        });
+        
+        // Зберігаємо значення GitHub токена в localStorage, якщо користувач дав згоду
+        function saveTokenToLocalStorage() {
+            const saveToken = confirm('Зберегти GitHub токен для наступних входів? (Не рекомендується на публічних комп\'ютерах)');
+            if (saveToken) {
+                localStorage.setItem('githubToken', githubToken);
+                localStorage.setItem('repoOwner', repoOwner);
+                localStorage.setItem('repoName', repoName);
+            }
+        }
+        
+        // Відновлюємо значення GitHub токена з localStorage, якщо є
+        function loadTokenFromLocalStorage() {
+            const savedToken = localStorage.getItem('githubToken');
+            if (savedToken) {
+                document.getElementById('githubToken').value = savedToken;
+            }
+            
+            const savedRepoOwner = localStorage.getItem('repoOwner');
+            if (savedRepoOwner) {
+                document.getElementById('repoOwner').value = savedRepoOwner;
+            }
+            
+            const savedRepoName = localStorage.getItem('repoName');
+            if (savedRepoName) {
+                document.getElementById('repoName').value = savedRepoName;
+            }
+        }
+        
+        // Викликаємо функцію при завантаженні сторінки
+        window.addEventListener('load', function() {
+            loadTokenFromLocalStorage();
+        });
+    </script>
+</body>
+</html>
