@@ -284,37 +284,47 @@
                 console.error('Помилка завантаження даних про зброю:', error);
             });
         
-        function openCategory(category) {
-            document.getElementById('weapon-display').style.display = 'block';
-            document.getElementById('main-page').classList.add('page-hidden');
-            let weaponContent = document.getElementById('weapon-content');
-            weaponContent.innerHTML = '';
+function openCategory(category) {
+    document.getElementById('weapon-display').style.display = 'block';
+    document.getElementById('main-page').classList.add('page-hidden');
+    let weaponContent = document.getElementById('weapon-content');
+    weaponContent.innerHTML = '';
 
-            localStorage.setItem('selectedCategory', category);
-            currentCategory = category;
-            currentState = 'category';
+    // Зберігаємо вибрану категорію в localStorage
+    localStorage.setItem('selectedCategory', category);
+    currentCategory = category;
+    currentState = 'category';
+    
+    // Додаємо новий стан до історії браузера
+    history.pushState({state: 'category', category: category}, '', '#' + category);
+    
+    // Спробуємо отримати прямий доступ до репозиторію файлів
+    fetch(`https://api.github.com/repos/Denromvas/hunt_showdown_site/contents/${category}`)
+        .then(response => response.json())
+        .then(data => {
+            // Фільтруємо тільки файли зображень
+            const imageFiles = data.filter(file => 
+                file.type === 'file' && 
+                file.name.match(/\.(jpg|jpeg|png|gif)$/i)
+            );
             
-            history.pushState({state: 'category', category: category}, '', '#' + category);
-            
-            fetch(`/hunt_showdown_site/${category}/`)
-                .then(response => response.text())
-                .then(text => {
-                    let parser = new DOMParser();
-                    let doc = parser.parseFromString(text, 'text/html');
-                    let files = Array.from(doc.querySelectorAll('a'))
-                        .map(a => decodeURIComponent(a.href.split('/').pop()))
-                        .filter(file => file.match(/\.(jpg|png|jpeg)$/i));
-                    
-                    files.forEach(img => {
-                        const weaponName = img.replace(/_/g, ' ').replace(/\..+$/, '');
-                        let item = document.createElement('div');
-                        item.classList.add('weapon-item');
-                        item.innerHTML = `<img src='/hunt_showdown_site/${category}/${encodeURIComponent(img)}' alt='${weaponName}' onclick='showWeapon("${img}", "${weaponName}")'>
-                                        <div class='weapon-name'>${weaponName}</div>`;
-                        weaponContent.appendChild(item);
-                    });
-                });
-        }
+            // Створюємо елементи для кожного зображення
+            imageFiles.forEach(file => {
+                const img = file.name;
+                const downloadUrl = file.download_url;
+                
+                let item = document.createElement('div');
+                item.classList.add('weapon-item');
+                item.innerHTML = `<img src='${downloadUrl}' alt='${category} weapon' onclick='showFullImage("${downloadUrl}", "${img}")'>
+                                <div class='weapon-name'>${img.replace(/_/g, ' ').replace(/\..+$/, '')}</div>`;
+                weaponContent.appendChild(item);
+            });
+        })
+        .catch(error => {
+            console.error('Помилка завантаження файлів:', error);
+            weaponContent.innerHTML = '<p>Не вдалося завантажити зображення. Спробуйте пізніше.</p>';
+        });
+}
 
         function closeCategory() {
             document.getElementById('weapon-display').style.display = 'none';
