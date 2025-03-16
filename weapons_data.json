@@ -1,0 +1,226 @@
+{
+  "Caldwell Conversion": {
+    "category": "handguns",
+    "price": 26,
+    "unlockRank": 22,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 104,
+        "effectiveRange": 95,
+        "rateOfFire": 40,
+        "handleSpeed": "Середня",
+        "reloadSpeed": "Повільна",
+        "muzzleVelocity": 300
+      },
+      {
+        "ammoType": "poison",
+        "ammoName": "Отруйні набої",
+        "damage": 97,
+        "effectiveRange": 92,
+        "rateOfFire": 40,
+        "handleSpeed": "Середня",
+        "reloadSpeed": "Повільна",
+        "muzzleVelocity": 280,
+        "image": "Caldwell_Conversion_Poison.jpg"
+      },
+      {
+        "ammoType": "fire",
+        "ammoName": "Запалювальні набої",
+        "damage": 85,
+        "effectiveRange": 85,
+        "rateOfFire": 40,
+        "handleSpeed": "Середня",
+        "reloadSpeed": "Повільна",
+        "muzzleVelocity": 250,
+        "image": "Caldwell_Conversion_Fire.jpg"
+      }
+    ]
+  },
+  "Uppercut": {
+    "category": "handguns",
+    "price": 275,
+    "unlockRank": 34,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 130,
+        "effectiveRange": 120,
+        "rateOfFire": 30,
+        "handleSpeed": "Повільна",
+        "reloadSpeed": "Повільна",
+        "muzzleVelocity": 410
+      },
+      {
+        "ammoType": "explosive",
+        "ammoName": "Вибухові набої",
+        "damage": 145,
+        "effectiveRange": 110,
+        "rateOfFire": 30,
+        "handleSpeed": "Повільна",
+        "reloadSpeed": "Повільна",
+        "muzzleVelocity": 380,
+        "image": "Uppercut_Explosive.jpg"
+      }
+    ]
+  },
+  "Bomb Lance": {
+    "category": "special",
+    "price": 199,
+    "unlockRank": 58,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Звичайна",
+        "damage": 600,
+        "effectiveRange": 15,
+        "rateOfFire": 10,
+        "handleSpeed": "Дуже повільна",
+        "reloadSpeed": "Дуже повільна",
+        "muzzleVelocity": 60
+      },
+      {
+        "ammoType": "dragonsbreath",
+        "ammoName": "Драконяче дихання",
+        "damage": 550,
+        "effectiveRange": 12,
+        "rateOfFire": 10,
+        "handleSpeed": "Дуже повільна",
+        "reloadSpeed": "Дуже повільна",
+        "muzzleVelocity": 55,
+        "image": "Bomb_Lance_Dragonsbreath.jpg"
+      }
+    ]
+  },
+  "Mosin Nagant": {
+    "category": "rifles",
+    "price": 490,
+    "unlockRank": 75,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 136,
+        "effectiveRange": 250,
+        "rateOfFire": 34,
+        "handleSpeed": "Повільна",
+        "reloadSpeed": "Середня",
+        "muzzleVelocity": 615
+      },
+      {
+        "ammoType": "spitzer",
+        "ammoName": "Набої Spitzer",
+        "damage": 130,
+        "effectiveRange": 270,
+        "rateOfFire": 34,
+        "handleSpeed": "Повільна",
+        "reloadSpeed": "Середня",
+        "muzzleVelocity": 900,
+        "image": "Mosin_Nagant_Spitzer.jpg"
+      },
+      {
+        "ammoType": "incendiary",
+        "ammoName": "Запалювальні набої",
+        "damage": 120,
+        "effectiveRange": 240,
+        "rateOfFire": 34,
+        "handleSpeed": "Повільна",
+        "reloadSpeed": "Середня",
+        "muzzleVelocity": 580,
+        "image": "Mosin_Nagant_Incendiary.jpg"
+      }
+    ]
+  },
+  "Romero 77": {
+    "category": "shotguns",
+    "price": 65,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 200,
+        "effectiveRange": 15,
+        "rateOfFire": 30,
+        "handleSpeed": "Середня",
+        "reloadSpeed": "Повільна",
+        "muzzleVelocity": 425
+      },
+      {
+        "ammoType": "slugs",
+        "ammoName": "Суцільні кулі",
+        "damage": 230,
+        "effectiveRange": 25,
+        "rateOfFire": 30,
+        "handleSpeed": "Середня",
+        "reloadSpeed": "Повільна",
+        "muzzleVelocity": 500,
+        "image": "Romero_77_Slugs.jpg"
+      },
+      {
+        "ammoType": "dragons",
+        "ammoName": "Драконяче дихання",
+        "damage": 170,
+        "effectiveRange": 12,
+        "rateOfFire": 30,
+        "handleSpeed": "Середня",
+        "reloadSpeed": "Повільна",
+        "muzzleVelocity": 400,
+        "image": "Romero_77_Dragons.jpg"
+      }
+    ]
+  },
+  "Hunting Bow": {
+    "category": "special",
+    "price": 220,
+    "unlockRank": 54,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Звичайні стріли",
+        "damage": 200,
+        "effectiveRange": 40,
+        "rateOfFire": 12,
+        "handleSpeed": "Швидка",
+        "reloadSpeed": "Середня",
+        "muzzleVelocity": 150
+      },
+      {
+        "ammoType": "poison",
+        "ammoName": "Отруйні стріли",
+        "damage": 150,
+        "effectiveRange": 35,
+        "rateOfFire": 12,
+        "handleSpeed": "Швидка",
+        "reloadSpeed": "Середня",
+        "muzzleVelocity": 145,
+        "image": "Hunting_Bow_Poison.jpg"
+      },
+      {
+        "ammoType": "concertina",
+        "ammoName": "Стріли з дротом",
+        "damage": 180,
+        "effectiveRange": 30,
+        "rateOfFire": 12,
+        "handleSpeed": "Швидка",
+        "reloadSpeed": "Середня",
+        "muzzleVelocity": 140,
+        "image": "Hunting_Bow_Concertina.jpg"
+      },
+      {
+        "ammoType": "frag",
+        "ammoName": "Вибухові стріли",
+        "damage": 220,
+        "effectiveRange": 30,
+        "rateOfFire": 10,
+        "handleSpeed": "Швидка",
+        "reloadSpeed": "Повільна",
+        "muzzleVelocity": 130,
+        "image": "Hunting_Bow_Frag.jpg"
+      }
+    ]
+  }
+}
+
