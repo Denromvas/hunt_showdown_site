@@ -166,19 +166,25 @@
             padding-bottom: 10px;
         }
         
-        .weapon-stats {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            margin-bottom: 15px;
-        }
-        
-        .stat {
-            width: 48%;
-            margin-bottom: 10px;
-            display: flex;
-            justify-content: space-between;
-        }
+.weapon-stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.stat {
+    width: 48%;  /* Два стовпчики характеристик */
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (max-width: 500px) {
+    .stat {
+        width: 100%;  /* Один стовпчик на мобільних */
+    }
+}
         
         .stat-name {
             color: #aaa;
@@ -378,78 +384,102 @@ function showFullImage(src, imgName) {
             history.pushState({state: 'category', category: currentCategory}, '', '#' + currentCategory);
         }
 
-        function backToCategory() {
-            document.getElementById('full-image').style.display = 'none';
-            currentState = 'category';
+function updateWeaponDetails() {
+    const nameElement = document.getElementById('weapon-name');
+    const statsElement = document.getElementById('weapon-stats');
+    const ammoSelector = document.getElementById('ammo-selector');
+    
+    // Встановлюємо назву зброї
+    nameElement.textContent = currentWeapon;
+    
+    // Якщо дані ще не завантажені або ця зброя не має даних
+    if (!weaponsData || !weaponsData[currentWeapon]) {
+        statsElement.innerHTML = '<div class="stat"><span class="stat-name">Інформація:</span><span class="stat-value">Дані відсутні</span></div>';
+        ammoSelector.innerHTML = '';
+        return;
+    }
+    
+    const weapon = weaponsData[currentWeapon];
+    const currentVariant = weapon.variants.find(v => v.ammoType === currentAmmo) || weapon.variants[0];
+    
+    // Заповнюємо характеристики
+    statsElement.innerHTML = '';
+    
+    // Додаємо загальні характеристики
+    if (weapon.price) {
+        addStat(statsElement, 'Ціна', `$${weapon.price}`);
+    }
+    if (weapon.unlockRank) {
+        addStat(statsElement, 'Ранг відкриття', weapon.unlockRank);
+    }
+    
+    // Додаємо характеристики поточного варіанту набоїв
+    if (currentVariant.damage) {
+        addStat(statsElement, 'Урон', currentVariant.damage);
+    }
+    if (currentVariant.effectiveRange) {
+        addStat(statsElement, 'Дальність падіння урону', `${currentVariant.effectiveRange} м`);
+    }
+    if (currentVariant.rateOfFire) {
+        addStat(statsElement, 'Швидкість стрільби', currentVariant.rateOfFire);
+    }
+    if (currentVariant.cycleTime) {
+        addStat(statsElement, 'Час циклу', currentVariant.cycleTime);
+    }
+    if (currentVariant.spread) {
+        addStat(statsElement, 'Розкид', currentVariant.spread);
+    }
+    if (currentVariant.sway) {
+        addStat(statsElement, 'Коливання', currentVariant.sway);
+    }
+    if (currentVariant.verticalRecoil) {
+        addStat(statsElement, 'Вертикальна віддача', currentVariant.verticalRecoil);
+    }
+    if (currentVariant.reloadSpeed) {
+        addStat(statsElement, 'Швидкість перезарядки', currentVariant.reloadSpeed);
+    }
+    if (currentVariant.muzzleVelocity) {
+        addStat(statsElement, 'Швидкість кулі', `${currentVariant.muzzleVelocity} м/с`);
+    }
+    if (currentVariant.meleeBaseDamage) {
+        addStat(statsElement, 'Урон в ближньому бою', currentVariant.meleeBaseDamage);
+    }
+    if (currentVariant.meleeHeavyDamage) {
+        addStat(statsElement, 'Урон у важкому ближньому бою', currentVariant.meleeHeavyDamage);
+    }
+    if (currentVariant.staminaCost) {
+        addStat(statsElement, 'Витрати витривалості', currentVariant.staminaCost);
+    }
+    
+    // Кнопки для вибору набоїв
+    ammoSelector.innerHTML = '';
+    weapon.variants.forEach(variant => {
+        const btn = document.createElement('button');
+        btn.classList.add('ammo-btn');
+        if (variant.ammoType === currentAmmo) {
+            btn.classList.add('active');
         }
-        
-        function updateWeaponDetails() {
-            const nameElement = document.getElementById('weapon-name');
-            const statsElement = document.getElementById('weapon-stats');
-            const ammoSelector = document.getElementById('ammo-selector');
-            
-            // Встановлюємо назву зброї
-            nameElement.textContent = currentWeapon;
-            
-            // Якщо дані ще не завантажені або ця зброя не має даних
-            if (!weaponsData || !weaponsData[currentWeapon]) {
-                statsElement.innerHTML = '<div class="stat"><span class="stat-name">Інформація:</span><span class="stat-value">Дані відсутні</span></div>';
-                ammoSelector.innerHTML = '';
-                return;
-            }
-            
-            const weapon = weaponsData[currentWeapon];
-            const currentVariant = weapon.variants.find(v => v.ammoType === currentAmmo) || weapon.variants[0];
-            
-            // Заповнюємо характеристики
-            statsElement.innerHTML = '';
-            
-            // Додаємо загальні характеристики
-            if (weapon.price) {
-                addStat(statsElement, 'Ціна', `$${weapon.price}`);
-            }
-            
-            // Додаємо характеристики поточного варіанту набоїв
-            if (currentVariant.damage) {
-                addStat(statsElement, 'Пошкодження', currentVariant.damage);
-            }
-            if (currentVariant.effectiveRange) {
-                addStat(statsElement, 'Ефективна дальність', `${currentVariant.effectiveRange} м`);
-            }
-            if (currentVariant.rateOfFire) {
-                addStat(statsElement, 'Швидкість вогню', `${currentVariant.rateOfFire} пострілів/хв`);
-            }
-            if (currentVariant.handleSpeed) {
-                addStat(statsElement, 'Швидкість обробки', currentVariant.handleSpeed);
-            }
-            if (currentVariant.reloadSpeed) {
-                addStat(statsElement, 'Швидкість перезарядки', currentVariant.reloadSpeed);
-            }
-            if (currentVariant.muzzleVelocity) {
-                addStat(statsElement, 'Швидкість кулі', `${currentVariant.muzzleVelocity} м/с`);
-            }
-            
-            // Кнопки для вибору набоїв
-            ammoSelector.innerHTML = '';
-            weapon.variants.forEach(variant => {
-                const btn = document.createElement('button');
-                btn.classList.add('ammo-btn');
-                if (variant.ammoType === currentAmmo) {
-                    btn.classList.add('active');
-                }
-                btn.textContent = variant.ammoName;
-                btn.dataset.ammoType = variant.ammoType;
-                btn.onclick = function() {
-                    changeAmmoType(variant.ammoType);
-                };
-                ammoSelector.appendChild(btn);
+        btn.textContent = variant.ammoName;
+        btn.dataset.ammoType = variant.ammoType;
+        btn.onclick = function() {
+            changeAmmoType(variant.ammoType);
+        };
+        ammoSelector.appendChild(btn);
+    });
+    
+    // Оновлюємо зображення, якщо для цього типу набоїв є окреме зображення
+    if (currentVariant.image) {
+        // Використовуємо GitHub API для отримання URL зображення
+        fetch(`https://api.github.com/repos/Denromvas/hunt_showdown_site/contents/${currentCategory}/${currentVariant.image}`)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('full-img').src = data.download_url;
+            })
+            .catch(error => {
+                console.error('Помилка завантаження зображення для типу набоїв:', error);
             });
-            
-            // Оновлюємо зображення, якщо для цього типу набоїв є окреме зображення
-            if (currentVariant.image) {
-                document.getElementById('full-img').src = `/hunt_showdown_site/${currentCategory}/${encodeURIComponent(currentVariant.image)}`;
-            }
-        }
+    }
+}
         
         function addStat(container, name, value) {
             const statElement = document.createElement('div');
