@@ -1,5 +1,5 @@
 {
-  "Caldwell Conversion": {
+  "Conversion": {
     "category": "handguns",
     "price": 26,
     "unlockRank": 22,
@@ -15,26 +15,15 @@
         "muzzleVelocity": 300
       },
       {
-        "ammoType": "poison",
-        "ammoName": "Отруйні набої",
+        "ammoType": "FMG",
+        "ammoName": "Пробивні набої",
         "damage": 97,
         "effectiveRange": 92,
         "rateOfFire": 40,
         "handleSpeed": "Середня",
         "reloadSpeed": "Повільна",
         "muzzleVelocity": 280,
-        "image": "Caldwell_Conversion_Poison.jpg"
-      },
-      {
-        "ammoType": "fire",
-        "ammoName": "Запалювальні набої",
-        "damage": 85,
-        "effectiveRange": 85,
-        "rateOfFire": 40,
-        "handleSpeed": "Середня",
-        "reloadSpeed": "Повільна",
-        "muzzleVelocity": 250,
-        "image": "Caldwell_Conversion_Fire.jpg"
+        "image": "Caldwell_FMG.jpg"
       }
     ]
   },
