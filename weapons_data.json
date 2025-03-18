@@ -44,11 +44,11 @@
         "meleeBaseDamage": 27,
         "meleeHeavyDamage": 54,
         "staminaCost": 25,
-        "image": "Romero 77 Alamo"
+        "image": "Romero 77 Alamo.jpg"
       }
     ]
   },
-  "Romero 77 Hatchet": {
+  "Romero 77 Hatchet Fissure": {
     "category": "shotguns",
     "price": 1,
     "unlockRank": 1,
@@ -68,7 +68,7 @@
         "meleeBaseDamage": 90,
         "meleeHeavyDamage": 150,
         "staminaCost": 25,
-        "image": "Romero 77 Hatchet"
+        "image": "Romero 77 Hatchet Fissure.jpg"
       }
     ]
   },
@@ -92,7 +92,7 @@
         "meleeBaseDamage": 13,
         "meleeHeavyDamage": 31,
         "staminaCost": 20,
-        "image": "Romero 77 Shorty"
+        "image": "Romero 77 Shorty.jpg"
       }
     ]
   },
@@ -116,7 +116,7 @@
         "meleeBaseDamage": 13,
         "meleeHeavyDamage": 31,
         "staminaCost": 20,
-        "image": "Auto-4 Shorty"
+        "image": "Auto-4 Shorty.jpg"
       }
     ]
   },
@@ -140,7 +140,7 @@
         "meleeBaseDamage": 27,
         "meleeHeavyDamage": 54,
         "staminaCost": 25,
-        "image": "Auto-5"
+        "image": "Auto-5.jpg"
       }
     ]
   },
@@ -164,7 +164,7 @@
         "meleeBaseDamage": 27,
         "meleeHeavyDamage": 54,
         "staminaCost": 25,
-        "image": "Ranger 73"
+        "image": "Ranger 73.jpg"
       }
     ]
   },
@@ -188,7 +188,7 @@
         "meleeBaseDamage": 27,
         "meleeHeavyDamage": 54,
         "staminaCost": 25,
-        "image": "Rival 78 Black Hand"
+        "image": "Rival 78 Black Hand.jpg"
       }
     ]
   },
@@ -212,7 +212,7 @@
         "meleeBaseDamage": 54,
         "meleeHeavyDamage": 90,
         "staminaCost": 10,
-        "image": "Rival 78 Mace"
+        "image": "Rival 78 Mace.jpg"
       }
     ]
   },
@@ -236,11 +236,11 @@
         "meleeBaseDamage": 27,
         "meleeHeavyDamage": 216,
         "staminaCost": 40,
-        "image": "Rival 78 Trauma"
+        "image": "Rival 78 Trauma.jpg"
       }
     ]
- },
-    "Specter 1882 Shorty Quietus": {
+  },
+  "Specter 1882 Shorty Quietus": {
     "category": "shotguns",
     "price": 1,
     "unlockRank": 1,
@@ -260,7 +260,7 @@
         "meleeBaseDamage": 13,
         "meleeHeavyDamage": 31,
         "staminaCost": 20,
-        "image": "Specter 1882 Shorty Quietus"
+        "image": "Specter 1882 Shorty Quietus.jpg"
       }
     ]
   },
@@ -284,7 +284,7 @@
         "meleeBaseDamage": 27,
         "meleeHeavyDamage": 54,
         "staminaCost": 25,
-        "image": "Specter 1882"
+        "image": "Specter 1882.jpg"
       }
     ]
   },
@@ -308,7 +308,7 @@
         "meleeBaseDamage": 27,
         "meleeHeavyDamage": 54,
         "staminaCost": 25,
-        "image": "Terminus Jackal's Snare"
+        "image": "Terminus Jackal's Snare.jpg"
       }
     ]
   },
@@ -332,7 +332,7 @@
         "meleeBaseDamage": 13,
         "meleeHeavyDamage": 31,
         "staminaCost": 25,
-        "image": "Terminus Shorty"
+        "image": "Terminus Shorty.jpg"
       }
     ]
   },
@@ -356,7 +356,7 @@
         "meleeBaseDamage": 27,
         "meleeHeavyDamage": 330,
         "staminaCost": 33,
-        "image": "Romero 77 Talon"
+        "image": "Romero 77 Talon.jpg"
       }
     ]
   },
@@ -380,7 +380,7 @@
         "meleeBaseDamage": 27,
         "meleeHeavyDamage": 54,
         "staminaCost": 25,
-        "image": "Romero 77"
+        "image": "Romero 77.jpg"
       }
     ]
   },
@@ -404,7 +404,7 @@
         "meleeBaseDamage": 27,
         "meleeHeavyDamage": 54,
         "staminaCost": 25,
-        "image": "Slate Proteção do Andarilho"
+        "image": "Slate Proteção do Andarilho.jpg"
       }
     ]
   },
@@ -428,7 +428,7 @@
         "meleeBaseDamage": 82,
         "meleeHeavyDamage": 168,
         "staminaCost": 25,
-        "image": "Slate Riposte"
+        "image": "Slate Riposte.jpg"
       }
     ]
   },
@@ -452,18 +452,19 @@
         "meleeBaseDamage": 27,
         "meleeHeavyDamage": 168,
         "staminaCost": 25,
-        "image": "Specter 1882 Bayonet Tartufai"
+        "image": "Specter 1882 Bayonet Tartufai.jpg"
       }
     ]
   },
   "Rival 78 Shorty": {
     "category": "shotguns",
+    "rarity": "Common",
+    "description": "Caldwell made, break-action shotgun with two barrels. High damage but high pellet spread, two-tapping gives it an edge. Shortened stock and barrel.",
     "price": 1,
     "unlockRank": 1,
     "variants": [
       {
-        "ammoType": "double-barrel",
-        "ammoName": "Дворядні набої",
+        "ammoType": "standard",
         "damage": 158,
         "effectiveRange": 20,
         "rateOfFire": 24,
@@ -476,7 +477,920 @@
         "meleeBaseDamage": 13,
         "meleeHeavyDamage": 31,
         "staminaCost": 20,
-        "image": "Rival 78 Shorty"
+        "image": "Rival 78 Shorty.jpg"
+      }
+    ]
+  },
+  "Centennial Sniper": {
+    "category": "rifles",
+    "rarity": "Common",
+    "description": "Winfield made, lever-action repeating rifle. High muzzle velocity and good damage at range. Modified with a long-range scope.",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "damage": 123,
+        "effectiveRange": 140,
+        "rateOfFire": 23,
+        "cycleTime": 1.6,
+        "spread": 37.5,
+        "sway": 69,
+        "verticalRecoil": 11,
+        "reloadSpeed": 15.4,
+        "muzzleVelocity": 600,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Centennial Sniper.jpg"
+      }
+    ]
+  },
+  "1865 Carbine": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 145,
+        "effectiveRange": 115,
+        "rateOfFire": 22,
+        "cycleTime": 1.8,
+        "spread": 23,
+        "sway": 77,
+        "verticalRecoil": 4,
+        "reloadSpeed": 8.5,
+        "muzzleVelocity": 340,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "1865 Carbine.jpg"
+      }
+    ]
+  },
+  "1865 Carbine Aperture": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 145,
+        "effectiveRange": 120,
+        "rateOfFire": 22,
+        "cycleTime": 1.8,
+        "spread": 23,
+        "sway": 77,
+        "verticalRecoil": 4,
+        "reloadSpeed": 8.5,
+        "muzzleVelocity": 340,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "1865 Carbine Aperture.jpg"
+      }
+    ]
+  },
+  "Berthier 1892 Deadeye": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 130,
+        "effectiveRange": 120,
+        "rateOfFire": 27,
+        "cycleTime": 1.7,
+        "spread": 57.5,
+        "sway": 69,
+        "verticalRecoil": 14,
+        "reloadSpeed": 2.7,
+        "muzzleVelocity": 590,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Berthier 1892 Deadeye.jpg"
+      }
+    ]
+  },
+  "Berthier 1892 Marksman": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 130,
+        "effectiveRange": 120,
+        "rateOfFire": 27,
+        "cycleTime": 1.7,
+        "spread": 70,
+        "sway": 69,
+        "verticalRecoil": 14,
+        "reloadSpeed": 2.7,
+        "muzzleVelocity": 590,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Berthier 1892 Marksman.jpg"
+      }
+    ]
+  },
+  "Berthier 1892 Riposte": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 130,
+        "effectiveRange": 120,
+        "rateOfFire": 27,
+        "cycleTime": 1.7,
+        "spread": 47.5,
+        "sway": 77,
+        "verticalRecoil": 14,
+        "reloadSpeed": 2.7,
+        "muzzleVelocity": 590,
+        "meleeBaseDamage": 82,
+        "meleeHeavyDamage": 168,
+        "staminaCost": 25,
+        "image": "Berthier 1892 Riposte.jpg"
+      }
+    ]
+  },
+  "Berthier 1892": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 130,
+        "effectiveRange": 120,
+        "rateOfFire": 27,
+        "cycleTime": 1.7,
+        "spread": 47.5,
+        "sway": 77,
+        "verticalRecoil": 14,
+        "reloadSpeed": 2.7,
+        "muzzleVelocity": 590,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Berthier 1892.jpg"
+      }
+    ]
+  },
+  "Centennial Pointman": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 120,
+        "effectiveRange": 110,
+        "rateOfFire": 24,
+        "cycleTime": 1.6,
+        "spread": 55,
+        "sway": 93,
+        "verticalRecoil": 15,
+        "reloadSpeed": 10.9,
+        "muzzleVelocity": 540,
+        "meleeBaseDamage": 13,
+        "meleeHeavyDamage": 31,
+        "staminaCost": 25,
+        "image": "Centennial Pointman.jpg"
+      }
+    ]
+  },
+  "Centennial Shorty Fate's Friend Shorty": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 120,
+        "effectiveRange": 110,
+        "rateOfFire": 24,
+        "cycleTime": 1.6,
+        "spread": 42.5,
+        "sway": 100,
+        "verticalRecoil": 15,
+        "reloadSpeed": 10.9,
+        "muzzleVelocity": 540,
+        "meleeBaseDamage": 13,
+        "meleeHeavyDamage": 31,
+        "staminaCost": 25,
+        "image": "Centennial Shorty Fate's Friend Shorty.jpg"
+      }
+    ]
+  },
+  "Centennial Shorty Silencer Burial Hymn": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 120,
+        "effectiveRange": 100,
+        "rateOfFire": 24,
+        "cycleTime": 1.6,
+        "spread": 42.5,
+        "sway": 100,
+        "verticalRecoil": 15,
+        "reloadSpeed": 10.9,
+        "muzzleVelocity": 459,
+        "meleeBaseDamage": 13,
+        "meleeHeavyDamage": 31,
+        "staminaCost": 25,
+        "image": "Centennial Shorty Silencer Burial Hymn.jpg"
+      }
+    ]
+  },
+  "Frontier 73C Marksman": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 110,
+        "effectiveRange": 140,
+        "rateOfFire": 29,
+        "cycleTime": 1.3,
+        "spread": 25,
+        "sway": 69,
+        "verticalRecoil": 5,
+        "reloadSpeed": 10.1,
+        "muzzleVelocity": 400,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Frontier 73C Marksman.jpg"
+      }
+    ]
+  },
+  "Frontier 73C Silencer": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 110,
+        "effectiveRange": 120,
+        "rateOfFire": 29,
+        "cycleTime": 1.2,
+        "spread": 25,
+        "sway": 87,
+        "verticalRecoil": 5,
+        "reloadSpeed": 10.1,
+        "muzzleVelocity": 340,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Frontier 73C Silencer.jpg"
+      }
+    ]
+  },
+  "Frontier 73C": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 110,
+        "effectiveRange": 140,
+        "rateOfFire": 29,
+        "cycleTime": 1.2,
+        "spread": 17.5,
+        "sway": 77,
+        "verticalRecoil": 5,
+        "reloadSpeed": 10.1,
+        "muzzleVelocity": 400,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Frontier 73C.jpg"
+      }
+    ]
+  },
+  "Infantry 73L Bayonet": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 110,
+        "effectiveRange": 145,
+        "rateOfFire": 35,
+        "cycleTime": 1.2,
+        "spread": 17.5,
+        "sway": 77,
+        "verticalRecoil": 3,
+        "reloadSpeed": 17.9,
+        "muzzleVelocity": 400,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 168,
+        "staminaCost": 25,
+        "image": "Infantry 73L Bayonet.jpg"
+      }
+    ]
+  },
+  "Infantry 73L Sniper": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 110,
+        "effectiveRange": 145,
+        "rateOfFire": 35,
+        "cycleTime": 1.2,
+        "spread": 17.5,
+        "sway": 69,
+        "verticalRecoil": 3,
+        "reloadSpeed": 17.9,
+        "muzzleVelocity": 400,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Infantry 73L Sniper.jpg"
+      }
+    ]
+  },
+  "Centennial Trauma": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 123,
+        "effectiveRange": 140,
+        "rateOfFire": 23,
+        "cycleTime": 1.6,
+        "spread": 25,
+        "sway": 77,
+        "verticalRecoil": 12.5,
+        "reloadSpeed": 15.5,
+        "muzzleVelocity": 600,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 216,
+        "staminaCost": 40,
+        "image": "Centennial Trauma.jpg"
+      }
+    ]
+  },
+  "Centennial": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 123,
+        "effectiveRange": 140,
+        "rateOfFire": 23,
+        "cycleTime": 1.6,
+        "spread": 25,
+        "sway": 77,
+        "verticalRecoil": 11,
+        "reloadSpeed": 15.5,
+        "muzzleVelocity": 600,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Centennial.jpg"
+      }
+    ]
+  },
+  "Drilling Hatchet": {
+    "category": "shotgun-rifle",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "mixed",
+        "ammoName": "Комбіновані набої",
+        "damage": 118,
+        "effectiveRange": 120,
+        "rateOfFire": 18,
+        "cycleTime": 0.6,
+        "spread": 62.5,
+        "sway": 100,
+        "verticalRecoil": 16,
+        "reloadSpeed": 5.6,
+        "muzzleVelocity": 424,
+        "meleeBaseDamage": 90,
+        "meleeHeavyDamage": 150,
+        "staminaCost": 25,
+        "image": "Drilling Hatchet.jpg"
+      }
+    ]
+  },
+  "Drilling Shorty": {
+    "category": "shotgun-rifle",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "mixed",
+        "ammoName": "Комбіновані набої",
+        "damage": 118,
+        "effectiveRange": 120,
+        "rateOfFire": 20,
+        "cycleTime": 0.6,
+        "spread": 62.5,
+        "sway": 100,
+        "verticalRecoil": 16,
+        "reloadSpeed": 4.8,
+        "muzzleVelocity": 424,
+        "meleeBaseDamage": 13,
+        "meleeHeavyDamage": 31,
+        "staminaCost": 20,
+        "image": "Drilling Shorty.jpg"
+      }
+    ]
+  },
+  "Drilling": {
+    "category": "shotgun-rifle",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "mixed",
+        "ammoName": "Комбіновані набої",
+        "damage": 120,
+        "effectiveRange": 145,
+        "rateOfFire": 20,
+        "cycleTime": 0.6,
+        "spread": 42.5,
+        "sway": 77,
+        "verticalRecoil": 12,
+        "reloadSpeed": 5.3,
+        "muzzleVelocity": 530,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Drilling.jpg"
+      }
+    ]
+  },
+  "Lebel 1886 Talon": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 132,
+        "effectiveRange": 140,
+        "rateOfFire": 20,
+        "cycleTime": 1.8,
+        "spread": 40,
+        "sway": 77,
+        "verticalRecoil": 11,
+        "reloadSpeed": 18.7,
+        "muzzleVelocity": 630,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 330,
+        "staminaCost": 33,
+        "image": "Lebel 1886 Talon.jpg"
+      }
+    ]
+  },
+  "Lebel 1886 Altar Boy": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 132,
+        "effectiveRange": 140,
+        "rateOfFire": 20,
+        "cycleTime": 1.8,
+        "spread": 40,
+        "sway": 77,
+        "verticalRecoil": 9,
+        "reloadSpeed": 18.7,
+        "muzzleVelocity": 630,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Lebel 1886 Altar Boy.jpg"
+      }
+    ]
+  },
+  "Lebel 1886 Aperture": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 132,
+        "effectiveRange": 140,
+        "rateOfFire": 20,
+        "cycleTime": 1.8,
+        "spread": 40,
+        "sway": 69,
+        "verticalRecoil": 9,
+        "reloadSpeed": 18.7,
+        "muzzleVelocity": 630,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Lebel 1886 Aperture.jpg"
+      }
+    ]
+  },
+  "Lebel 1886 Marksman": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 132,
+        "effectiveRange": 140,
+        "rateOfFire": 20,
+        "cycleTime": 1.8,
+        "spread": 55,
+        "sway": 69,
+        "verticalRecoil": 9,
+        "reloadSpeed": 18.7,
+        "muzzleVelocity": 630,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Lebel 1886 Marksman.jpg"
+      }
+    ]
+  },
+  "Mako 1895 Aperture": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 128,
+        "effectiveRange": 115,
+        "rateOfFire": 20,
+        "cycleTime": 1.6,
+        "spread": 27.5,
+        "sway": 69,
+        "verticalRecoil": 15,
+        "reloadSpeed": 13,
+        "muzzleVelocity": 540,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Mako 1895 Aperture.jpg"
+      }
+    ]
+  },
+  "Infantry 73L Curtain Call": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 110,
+        "effectiveRange": 145,
+        "rateOfFire": 35,
+        "cycleTime": 1.2,
+        "spread": 17.5,
+        "sway": 77,
+        "verticalRecoil": 3,
+        "reloadSpeed": 17.9,
+        "muzzleVelocity": 400,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Infantry 73L Curtain Call.jpg"
+      }
+    ]
+  },
+  "Krag Bayonet Rib Burster": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 126,
+        "effectiveRange": 140,
+        "rateOfFire": 23,
+        "cycleTime": 1.4,
+        "spread": 30,
+        "sway": 77,
+        "verticalRecoil": 3,
+        "reloadSpeed": 11.1,
+        "muzzleVelocity": 610,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 168,
+        "staminaCost": 25,
+        "image": "Krag Bayonet Rib Burster.jpg"
+      }
+    ]
+  },
+  "Krag Silencer Ophidian Eye": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 126,
+        "effectiveRange": 130,
+        "rateOfFire": 23,
+        "cycleTime": 1.4,
+        "spread": 60,
+        "sway": 69,
+        "verticalRecoil": 3,
+        "reloadSpeed": 11.1,
+        "muzzleVelocity": 518,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Krag Silencer Ophidian Eye.jpg"
+      }
+    ]
+  },
+  "Krag Sniper": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 126,
+        "effectiveRange": 140,
+        "rateOfFire": 23,
+        "cycleTime": 1.4,
+        "spread": 60,
+        "sway": 69,
+        "verticalRecoil": 3,
+        "reloadSpeed": 11.1,
+        "muzzleVelocity": 610,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Krag Sniper.jpg"
+      }
+    ]
+  },
+  "Krag Shrewd Savior": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 126,
+        "effectiveRange": 140,
+        "rateOfFire": 23,
+        "cycleTime": 1.4,
+        "spread": 30,
+        "sway": 77,
+        "verticalRecoil": 3,
+        "reloadSpeed": 11.1,
+        "muzzleVelocity": 610,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Krag Shrewd Savior.jpg"
+      }
+    ]
+  },
+  "Maynard Sniper Silencer": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "medium",
+        "ammoName": "Середні набої",
+        "damage": 144,
+        "effectiveRange": 150,
+        "rateOfFire": 11,
+        "cycleTime": 5.8,
+        "spread": 25,
+        "sway": 69,
+        "verticalRecoil": 8,
+        "reloadSpeed": 5,
+        "muzzleVelocity": 476,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Maynard Sniper Silencer.jpg"
+      }
+    ]
+  },
+  "Mako 1895 Claw": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 128,
+        "effectiveRange": 115,
+        "rateOfFire": 20,
+        "cycleTime": 1.6,
+        "spread": 27.5,
+        "sway": 77,
+        "verticalRecoil": 15,
+        "reloadSpeed": 13,
+        "muzzleVelocity": 540,
+        "meleeBaseDamage": 120,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Mako 1895 Claw.jpg"
+      }
+    ]
+  },
+  "Mako 1895 Yawning Grave": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 128,
+        "effectiveRange": 115,
+        "rateOfFire": 20,
+        "cycleTime": 1.6,
+        "spread": 27.5,
+        "sway": 77,
+        "verticalRecoil": 15,
+        "reloadSpeed": 13,
+        "muzzleVelocity": 540,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Mako 1895 Yawning Grave.jpg"
+      }
+    ]
+  },
+  "Marathon Swift Noble Execution": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 113,
+        "effectiveRange": 140,
+        "rateOfFire": 45,
+        "cycleTime": 1.6,
+        "spread": 27.5,
+        "sway": 77,
+        "verticalRecoil": 7,
+        "reloadSpeed": 10,
+        "muzzleVelocity": 430,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Marathon Swift Noble Execution.jpg"
+      }
+    ]
+  },
+  "Marathon": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 113,
+        "effectiveRange": 140,
+        "rateOfFire": 31,
+        "cycleTime": 1.6,
+        "spread": 27.5,
+        "sway": 77,
+        "verticalRecoil": 7,
+        "reloadSpeed": 19.2,
+        "muzzleVelocity": 430,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Marathon.jpg"
+      }
+    ]
+  },
+  "Martini Henry Fierce Garland": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "large",
+        "ammoName": "Великі набої",
+        "damage": 143,
+        "effectiveRange": 125,
+        "rateOfFire": 18,
+        "cycleTime": 3.5,
+        "spread": 42.5,
+        "sway": 77,
+        "verticalRecoil": 12,
+        "reloadSpeed": 2.7,
+        "muzzleVelocity": 400,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Martini Henry Fierce Garland.jpg"
+      }
+    ]
+  },
+  "Martini Henry Ironside": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "large",
+        "ammoName": "Великі набої",
+        "damage": 143,
+        "effectiveRange": 125,
+        "rateOfFire": 18,
+        "cycleTime": 1.8,
+        "spread": 42.5,
+        "sway": 77,
+        "verticalRecoil": 12,
+        "reloadSpeed": 14.7,
+        "muzzleVelocity": 400,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Martini Henry Ironside.jpg"
+      }
+    ]
+  },
+  "Martini Henry Marksman": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "large",
+        "ammoName": "Великі набої",
+        "damage": 143,
+        "effectiveRange": 125,
+        "rateOfFire": 18,
+        "cycleTime": 3.5,
+        "spread": 62.5,
+        "sway": 69,
+        "verticalRecoil": 12,
+        "reloadSpeed": 2.7,
+        "muzzleVelocity": 400,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Martini Henry Marksman.jpg"
       }
     ]
   }
