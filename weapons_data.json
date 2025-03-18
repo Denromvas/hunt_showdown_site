@@ -24,189 +24,460 @@
       }
     ]
   },
-  "Uppercut": {
-    "category": "handguns",
-    "price": 275,
-    "unlockRank": 34,
-    "variants": [
-      {
-        "ammoType": "standard",
-        "ammoName": "Стандартні набої",
-        "damage": 130,
-        "effectiveRange": 120,
-        "rateOfFire": 30,
-        "handleSpeed": "Повільна",
-        "reloadSpeed": "Повільна",
-        "muzzleVelocity": 410
-      },
-      {
-        "ammoType": "explosive",
-        "ammoName": "Вибухові набої",
-        "damage": 145,
-        "effectiveRange": 110,
-        "rateOfFire": 30,
-        "handleSpeed": "Повільна",
-        "reloadSpeed": "Повільна",
-        "muzzleVelocity": 380,
-        "image": "Uppercut_Explosive.jpg"
-      }
-    ]
-  },
-  "Bomb Lance": {
-    "category": "special",
-    "price": 199,
-    "unlockRank": 58,
-    "variants": [
-      {
-        "ammoType": "standard",
-        "ammoName": "Звичайна",
-        "damage": 600,
-        "effectiveRange": 15,
-        "rateOfFire": 10,
-        "handleSpeed": "Дуже повільна",
-        "reloadSpeed": "Дуже повільна",
-        "muzzleVelocity": 60
-      },
-      {
-        "ammoType": "dragonsbreath",
-        "ammoName": "Драконяче дихання",
-        "damage": 550,
-        "effectiveRange": 12,
-        "rateOfFire": 10,
-        "handleSpeed": "Дуже повільна",
-        "reloadSpeed": "Дуже повільна",
-        "muzzleVelocity": 55,
-        "image": "Bomb_Lance_Dragonsbreath.jpg"
-      }
-    ]
-  },
-  "Mosin Nagant": {
-    "category": "rifles",
-    "price": 490,
-    "unlockRank": 75,
-    "variants": [
-      {
-        "ammoType": "standard",
-        "ammoName": "Стандартні набої",
-        "damage": 136,
-        "effectiveRange": 250,
-        "rateOfFire": 34,
-        "handleSpeed": "Повільна",
-        "reloadSpeed": "Середня",
-        "muzzleVelocity": 615
-      },
-      {
-        "ammoType": "spitzer",
-        "ammoName": "Набої Spitzer",
-        "damage": 130,
-        "effectiveRange": 270,
-        "rateOfFire": 34,
-        "handleSpeed": "Повільна",
-        "reloadSpeed": "Середня",
-        "muzzleVelocity": 900,
-        "image": "Mosin_Nagant_Spitzer.jpg"
-      },
-      {
-        "ammoType": "incendiary",
-        "ammoName": "Запалювальні набої",
-        "damage": 120,
-        "effectiveRange": 240,
-        "rateOfFire": 34,
-        "handleSpeed": "Повільна",
-        "reloadSpeed": "Середня",
-        "muzzleVelocity": 580,
-        "image": "Mosin_Nagant_Incendiary.jpg"
-      }
-    ]
-  },
-  "Romero 77": {
+  "Romero 77 Alamo": {
     "category": "shotguns",
-    "price": 65,
+    "price": 1,
     "unlockRank": 1,
     "variants": [
       {
         "ammoType": "standard",
         "ammoName": "Стандартні набої",
-        "damage": 200,
-        "effectiveRange": 15,
-        "rateOfFire": 30,
-        "handleSpeed": "Середня",
-        "reloadSpeed": "Повільна",
-        "muzzleVelocity": 425
-      },
-      {
-        "ammoType": "slugs",
-        "ammoName": "Суцільні кулі",
-        "damage": 230,
-        "effectiveRange": 25,
-        "rateOfFire": 30,
-        "handleSpeed": "Середня",
-        "reloadSpeed": "Повільна",
-        "muzzleVelocity": 500,
-        "image": "Romero_77_Slugs.jpg"
-      },
-      {
-        "ammoType": "dragons",
-        "ammoName": "Драконяче дихання",
-        "damage": 170,
-        "effectiveRange": 12,
-        "rateOfFire": 30,
-        "handleSpeed": "Середня",
-        "reloadSpeed": "Повільна",
-        "muzzleVelocity": 400,
-        "image": "Romero_77_Dragons.jpg"
+        "damage": 220,
+        "effectiveRange": 30,
+        "rateOfFire": 13,
+        "cycleTime": 2.8,
+        "spread": 20,
+        "sway": 77,
+        "verticalRecoil": 20,
+        "reloadSpeed": 18.2,
+        "muzzleVelocity": 450,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Romero 77 Alamo"
       }
     ]
   },
-  "Hunting Bow": {
-    "category": "special",
-    "price": 220,
-    "unlockRank": 54,
+  "Romero 77 Hatchet": {
+    "category": "shotguns",
+    "price": 1,
+    "unlockRank": 1,
     "variants": [
       {
         "ammoType": "standard",
-        "ammoName": "Звичайні стріли",
-        "damage": 200,
-        "effectiveRange": 40,
-        "rateOfFire": 12,
-        "handleSpeed": "Швидка",
-        "reloadSpeed": "Середня",
-        "muzzleVelocity": 150
-      },
+        "ammoName": "Стандартні набої",
+        "damage": 214,
+        "effectiveRange": 20,
+        "rateOfFire": 16,
+        "cycleTime": 3.7,
+        "spread": 25,
+        "sway": 108,
+        "verticalRecoil": 30,
+        "reloadSpeed": 3.7,
+        "muzzleVelocity": 375,
+        "meleeBaseDamage": 90,
+        "meleeHeavyDamage": 150,
+        "staminaCost": 25,
+        "image": "Romero 77 Hatchet"
+      }
+    ]
+  },
+  "Romero 77 Shorty": {
+    "category": "shotguns",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
       {
-        "ammoType": "poison",
-        "ammoName": "Отруйні стріли",
-        "damage": 150,
-        "effectiveRange": 35,
-        "rateOfFire": 12,
-        "handleSpeed": "Швидка",
-        "reloadSpeed": "Середня",
-        "muzzleVelocity": 145,
-        "image": "Hunting_Bow_Poison.jpg"
-      },
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 214,
+        "effectiveRange": 20,
+        "rateOfFire": 16,
+        "cycleTime": 4,
+        "spread": 25,
+        "sway": 133,
+        "verticalRecoil": 30,
+        "reloadSpeed": 3.2,
+        "muzzleVelocity": 375,
+        "meleeBaseDamage": 13,
+        "meleeHeavyDamage": 31,
+        "staminaCost": 20,
+        "image": "Romero 77 Shorty"
+      }
+    ]
+  },
+  "Auto-4 Shorty": {
+    "category": "shotguns",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
       {
-        "ammoType": "concertina",
-        "ammoName": "Стріли з дротом",
-        "damage": 180,
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 154,
+        "effectiveRange": 20,
+        "rateOfFire": 24,
+        "cycleTime": 0.6,
+        "spread": 57,
+        "sway": 147,
+        "verticalRecoil": 25,
+        "reloadSpeed": 9.7,
+        "muzzleVelocity": 350,
+        "meleeBaseDamage": 13,
+        "meleeHeavyDamage": 31,
+        "staminaCost": 20,
+        "image": "Auto-4 Shorty"
+      }
+    ]
+  },
+  "Auto-5": {
+    "category": "shotguns",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 194,
         "effectiveRange": 30,
-        "rateOfFire": 12,
-        "handleSpeed": "Швидка",
-        "reloadSpeed": "Середня",
-        "muzzleVelocity": 140,
-        "image": "Hunting_Bow_Concertina.jpg"
-      },
+        "rateOfFire": 24,
+        "cycleTime": 0.6,
+        "spread": 35,
+        "sway": 133,
+        "verticalRecoil": 20,
+        "reloadSpeed": 10.7,
+        "muzzleVelocity": 425,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Auto-5"
+      }
+    ]
+  },
+  "Ranger 73": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
       {
-        "ammoType": "frag",
-        "ammoName": "Вибухові стріли",
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 110,
+        "effectiveRange": 140,
+        "rateOfFire": 31,
+        "cycleTime": 1.2,
+        "spread": 17.5,
+        "sway": 77,
+        "verticalRecoil": 4,
+        "reloadSpeed": 16.4,
+        "muzzleVelocity": 400,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Ranger 73"
+      }
+    ]
+  },
+  "Rival 78 Black Hand": {
+    "category": "shotguns",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 184,
+        "effectiveRange": 25,
+        "rateOfFire": 24,
+        "cycleTime": 0.3,
+        "spread": 45,
+        "sway": 77,
+        "verticalRecoil": 20,
+        "reloadSpeed": 4.7,
+        "muzzleVelocity": 425,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Rival 78 Black Hand"
+      }
+    ]
+  },
+  "Rival 78 Mace": {
+    "category": "shotguns",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 158,
+        "effectiveRange": 20,
+        "rateOfFire": 24,
+        "cycleTime": 0.3,
+        "spread": 55,
+        "sway": 133,
+        "verticalRecoil": 34,
+        "reloadSpeed": 4.7,
+        "muzzleVelocity": 350,
+        "meleeBaseDamage": 54,
+        "meleeHeavyDamage": 90,
+        "staminaCost": 10,
+        "image": "Rival 78 Mace"
+      }
+    ]
+  },
+  "Rival 78 Trauma": {
+    "category": "shotguns",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 184,
+        "effectiveRange": 25,
+        "rateOfFire": 24,
+        "cycleTime": 0.3,
+        "spread": 45,
+        "sway": 77,
+        "verticalRecoil": 22,
+        "reloadSpeed": 4.7,
+        "muzzleVelocity": 425,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 216,
+        "staminaCost": 40,
+        "image": "Rival 78 Trauma"
+      }
+    ]
+ },
+    "Specter 1882 Shorty Quietus": {
+    "category": "shotguns",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 178,
+        "effectiveRange": 20,
+        "rateOfFire": 19,
+        "cycleTime": 1.2,
+        "spread": 45,
+        "sway": 87,
+        "verticalRecoil": 25,
+        "reloadSpeed": 11.1,
+        "muzzleVelocity": 350,
+        "meleeBaseDamage": 13,
+        "meleeHeavyDamage": 31,
+        "staminaCost": 20,
+        "image": "Specter 1882 Shorty Quietus"
+      }
+    ]
+  },
+  "Specter 1882": {
+    "category": "shotguns",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 213,
+        "effectiveRange": 30,
+        "rateOfFire": 20,
+        "cycleTime": 1,
+        "spread": 25,
+        "sway": 77,
+        "verticalRecoil": 20,
+        "reloadSpeed": 14.8,
+        "muzzleVelocity": 425,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Specter 1882"
+      }
+    ]
+  },
+  "Terminus Jackal's Snare": {
+    "category": "shotguns",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 186,
+        "effectiveRange": 25,
+        "rateOfFire": 21,
+        "cycleTime": 1.6,
+        "spread": 40,
+        "sway": 77,
+        "verticalRecoil": 22,
+        "reloadSpeed": 12.2,
+        "muzzleVelocity": 425,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Terminus Jackal's Snare"
+      }
+    ]
+  },
+  "Terminus Shorty": {
+    "category": "shotguns",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 168,
+        "effectiveRange": 20,
+        "rateOfFire": 19,
+        "cycleTime": 1.6,
+        "spread": 50,
+        "sway": 133,
+        "verticalRecoil": 27,
+        "reloadSpeed": 10.6,
+        "muzzleVelocity": 350,
+        "meleeBaseDamage": 13,
+        "meleeHeavyDamage": 31,
+        "staminaCost": 25,
+        "image": "Terminus Shorty"
+      }
+    ]
+  },
+  "Romero 77 Talon": {
+    "category": "shotguns",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
         "damage": 220,
         "effectiveRange": 30,
-        "rateOfFire": 10,
-        "handleSpeed": "Швидка",
-        "reloadSpeed": "Повільна",
-        "muzzleVelocity": 130,
-        "image": "Hunting_Bow_Frag.jpg"
+        "rateOfFire": 16,
+        "cycleTime": 4,
+        "spread": 20,
+        "sway": 77,
+        "verticalRecoil": 25,
+        "reloadSpeed": 3.4,
+        "muzzleVelocity": 425,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 330,
+        "staminaCost": 33,
+        "image": "Romero 77 Talon"
+      }
+    ]
+  },
+  "Romero 77": {
+    "category": "shotguns",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 220,
+        "effectiveRange": 30,
+        "rateOfFire": 16,
+        "cycleTime": 4,
+        "spread": 20,
+        "sway": 77,
+        "verticalRecoil": 20,
+        "reloadSpeed": 3.4,
+        "muzzleVelocity": 450,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Romero 77"
+      }
+    ]
+  },
+  "Slate Proteção do Andarilho": {
+    "category": "shotguns",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 207,
+        "effectiveRange": 25,
+        "rateOfFire": 23,
+        "cycleTime": 1,
+        "spread": 30,
+        "sway": 77,
+        "verticalRecoil": 26,
+        "reloadSpeed": 9.6,
+        "muzzleVelocity": 425,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Slate Proteção do Andarilho"
+      }
+    ]
+  },
+  "Slate Riposte": {
+    "category": "shotguns",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 207,
+        "effectiveRange": 25,
+        "rateOfFire": 23,
+        "cycleTime": 1,
+        "spread": 30,
+        "sway": 77,
+        "verticalRecoil": 26,
+        "reloadSpeed": 9.6,
+        "muzzleVelocity": 425,
+        "meleeBaseDamage": 82,
+        "meleeHeavyDamage": 168,
+        "staminaCost": 25,
+        "image": "Slate Riposte"
+      }
+    ]
+  },
+  "Specter 1882 Bayonet Tartufai": {
+    "category": "shotguns",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 204,
+        "effectiveRange": 25,
+        "rateOfFire": 20,
+        "cycleTime": 1,
+        "spread": 35,
+        "sway": 77,
+        "verticalRecoil": 20,
+        "reloadSpeed": 14.8,
+        "muzzleVelocity": 400,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 168,
+        "staminaCost": 25,
+        "image": "Specter 1882 Bayonet Tartufai"
+      }
+    ]
+  },
+  "Rival 78 Shorty": {
+    "category": "shotguns",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "double-barrel",
+        "ammoName": "Дворядні набої",
+        "damage": 158,
+        "effectiveRange": 20,
+        "rateOfFire": 24,
+        "cycleTime": 0.3,
+        "spread": 55,
+        "sway": 133,
+        "verticalRecoil": 30,
+        "reloadSpeed": 4.7,
+        "muzzleVelocity": 350,
+        "meleeBaseDamage": 13,
+        "meleeHeavyDamage": 31,
+        "staminaCost": 20,
+        "image": "Rival 78 Shorty"
       }
     ]
   }
 }
-
