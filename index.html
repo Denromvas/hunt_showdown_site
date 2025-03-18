@@ -5,6 +5,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hunt: Showdown Weapons</title>
     <style>
+        /* Стилі для контейнера елементів керування */
+.controls-container {
+    margin: 20px auto;
+    max-width: 800px;
+    padding: 15px 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(3px);
+    border: 1px solid #555;
+}
+
+/* Стилі для поля пошуку */
+#search-input {
+    width: 100%;
+    padding: 10px 15px;
+    background-color: #333;
+    color: white;
+    border: 1px solid #555;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+#search-input:focus {
+    border-color: #d4af37;
+    outline: none;
+    box-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+}
+
+#search-input::placeholder {
+    color: #888;
+}
+
+/* Стилі для селектора сортування */
+#sort-select {
+    padding: 10px 15px;
+    background-color: #333;
+    color: white;
+    border: 1px solid #555;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#sort-select:focus {
+    border-color: #d4af37;
+    outline: none;
+    box-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+}
+
+#sort-select option {
+    background-color: #333;
+    color: white;
+}
+
+/* Контейнери для елементів керування */
+.search-container, 
+.sort-container {
+    flex: 1;
+    min-width: 250px;
+    margin: 10px;
+}
+
+/* Медіа-запити для адаптивності */
+@media (max-width: 768px) {
+    .controls-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .search-container, 
+    .sort-container {
+        width: 100%;
+        margin: 5px 0;
+    }
+    
+    #sort-select {
+        width: 100%;
+    }
+}
+
+/* Анімація для елементів зброї при фільтрації/сортуванні */
+.weapon-item {
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+/* Індикатор відсутності результатів пошуку */
+.no-results {
+    width: 100%;
+    padding: 30px;
+    text-align: center;
+    color: #aaa;
+    font-size: 18px;
+    font-style: italic;
+}
+        
         body {
             background-color: #0e0e0e;
             color: white;
@@ -320,13 +421,65 @@ function openCategory(category) {
             imageFiles.forEach(file => {
                 const img = file.name;
                 const downloadUrl = file.download_url;
+                const weaponName = img.replace(/_/g, ' ').replace(/\..+$/, '');
                 
-let item = document.createElement('div');
-item.classList.add('weapon-item');
-item.innerHTML = `<img src='${downloadUrl}' alt='${category} weapon' onclick='showWeapon("${downloadUrl}", "${img}")'>
-                <div class='weapon-name'>${img.replace(/_/g, ' ').replace(/\..+$/, '')}</div>`;
+                // Створюємо елемент зброї
+                let item = document.createElement('div');
+                item.classList.add('weapon-item');
+                
+                // Додаємо дані про зброю як атрибути для сортування
+                if (weaponsData && weaponsData[weaponName]) {
+                    const weaponData = weaponsData[weaponName];
+                    
+                    // Додаємо атрибути для цін та рангу розблокування
+                    if (weaponData.price) {
+                        item.dataset.price = weaponData.price;
+                    }
+                    if (weaponData.unlockRank) {
+                        item.dataset.unlockRank = weaponData.unlockRank;
+                    }
+                    
+                    // Додаємо атрибути для основних характеристик першого варіанту набоїв
+                    if (weaponData.variants && weaponData.variants.length > 0) {
+                        const variant = weaponData.variants[0];
+                        
+                        if (variant.damage) {
+                            item.dataset.damage = variant.damage;
+                        }
+                        if (variant.effectiveRange) {
+                            item.dataset.range = variant.effectiveRange;
+                        }
+                        if (variant.muzzleVelocity) {
+                            item.dataset.velocity = variant.muzzleVelocity;
+                        }
+                    }
+                }
+                
+                // Додаємо дату додавання (можна використати timestamp файлу або поточну дату)
+                // Для прикладу використовуємо випадкову дату в межах останніх 30 днів
+                const randomDate = new Date();
+                randomDate.setDate(randomDate.getDate() - Math.floor(Math.random() * 30));
+                item.dataset.addedDate = randomDate.toISOString();
+                
+                // Додаємо вміст елемента
+                item.innerHTML = `
+                    <img src='${downloadUrl}' alt='${category} weapon' onclick='showWeapon("${downloadUrl}", "${img}")'>
+                    <div class='weapon-name'>${weaponName}</div>
+                `;
+                
                 weaponContent.appendChild(item);
             });
+            
+            // Після завантаження всіх елементів, додаємо елементи сортування та пошуку
+            setTimeout(() => {
+                createEnhancedSortingAndSearch();
+                
+                // Сортуємо за замовчуванням
+                const sortSelect = document.getElementById('sort-select');
+                if (sortSelect) {
+                    enhancedSortWeapons(sortSelect.value);
+                }
+            }, 300);
         })
         .catch(error => {
             console.error('Помилка завантаження файлів:', error);
@@ -593,6 +746,482 @@ function changeAmmoType(ammoType) {
                 }
             </style>
         `);
-    </script>
+// Функція для додавання елементів сортування та пошуку
+function addSortingAndSearch() {
+    const weaponDisplay = document.getElementById('weapon-display');
+    const weaponContent = document.getElementById('weapon-content');
+    
+    // Створюємо контейнер для елементів керування
+    const controlsContainer = document.createElement('div');
+    controlsContainer.className = 'controls-container';
+    controlsContainer.style.margin = '20px auto';
+    controlsContainer.style.maxWidth = '800px';
+    controlsContainer.style.padding = '10px 20px';
+    controlsContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+    controlsContainer.style.borderRadius = '5px';
+    controlsContainer.style.display = 'flex';
+    controlsContainer.style.flexWrap = 'wrap';
+    controlsContainer.style.justifyContent = 'space-between';
+    controlsContainer.style.alignItems = 'center';
+    
+    // Створюємо поле пошуку
+    const searchContainer = document.createElement('div');
+    searchContainer.style.flex = '1';
+    searchContainer.style.minWidth = '250px';
+    searchContainer.style.margin = '10px';
+    
+    const searchInput = document.createElement('input');
+    searchInput.type = 'text';
+    searchInput.id = 'search-input';
+    searchInput.placeholder = 'Пошук зброї...';
+    searchInput.style.width = '100%';
+    searchInput.style.padding = '8px 12px';
+    searchInput.style.backgroundColor = '#333';
+    searchInput.style.color = 'white';
+    searchInput.style.border = '1px solid #555';
+    searchInput.style.borderRadius = '4px';
+    searchInput.style.fontSize = '16px';
+    
+    searchInput.addEventListener('input', function() {
+        filterWeapons();
+    });
+    
+    searchContainer.appendChild(searchInput);
+    
+    // Створюємо селектор для сортування
+    const sortContainer = document.createElement('div');
+    sortContainer.style.flex = '1';
+    sortContainer.style.minWidth = '250px';
+    sortContainer.style.margin = '10px';
+    
+    const sortLabel = document.createElement('label');
+    sortLabel.htmlFor = 'sort-select';
+    sortLabel.textContent = 'Сортувати за: ';
+    sortLabel.style.color = '#aaa';
+    sortLabel.style.marginRight = '10px';
+    
+    const sortSelect = document.createElement('select');
+    sortSelect.id = 'sort-select';
+    sortSelect.style.padding = '8px 12px';
+    sortSelect.style.backgroundColor = '#333';
+    sortSelect.style.color = 'white';
+    sortSelect.style.border = '1px solid #555';
+    sortSelect.style.borderRadius = '4px';
+    sortSelect.style.fontSize = '16px';
+    
+    const sortOptions = [
+        { value: 'name-asc', text: 'Назва (А-Я)' },
+        { value: 'name-desc', text: 'Назва (Я-А)' }
+    ];
+    
+    sortOptions.forEach(option => {
+        const optionElement = document.createElement('option');
+        optionElement.value = option.value;
+        optionElement.textContent = option.text;
+        sortSelect.appendChild(optionElement);
+    });
+    
+    sortSelect.addEventListener('change', function() {
+        sortWeapons(this.value);
+    });
+    
+    sortContainer.appendChild(sortLabel);
+    sortContainer.appendChild(sortSelect);
+    
+    // Додаємо елементи в контейнер
+    controlsContainer.appendChild(searchContainer);
+    controlsContainer.appendChild(sortContainer);
+    
+    // Додаємо контейнер перед контентом зброї
+    weaponDisplay.insertBefore(controlsContainer, weaponContent);
+}
+
+// Функція для фільтрації зброї за пошуковим запитом
+function filterWeapons() {
+    const searchInput = document.getElementById('search-input');
+    const query = searchInput.value.toLowerCase();
+    const weaponItems = document.querySelectorAll('.weapon-item');
+    
+    weaponItems.forEach(item => {
+        const weaponName = item.querySelector('.weapon-name').textContent.toLowerCase();
+        if (weaponName.includes(query)) {
+            item.style.display = 'block';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+    
+    // Після фільтрації також застосовуємо поточне сортування
+    const sortSelect = document.getElementById('sort-select');
+    if (sortSelect) {
+        sortWeapons(sortSelect.value);
+    }
+}
+
+// Функція для сортування зброї
+function sortWeapons(sortType) {
+    const weaponContent = document.getElementById('weapon-content');
+    const weaponItems = Array.from(document.querySelectorAll('.weapon-item'));
+    
+    // Фільтруємо тільки видимі елементи (для врахування пошуку)
+    const visibleItems = weaponItems.filter(item => item.style.display !== 'none');
+    
+    // Сортуємо зброю залежно від обраного типу сортування
+    visibleItems.sort((a, b) => {
+        const nameA = a.querySelector('.weapon-name').textContent;
+        const nameB = b.querySelector('.weapon-name').textContent;
+        
+        if (sortType === 'name-asc') {
+            return nameA.localeCompare(nameB);
+        } else if (sortType === 'name-desc') {
+            return nameB.localeCompare(nameA);
+        }
+        
+        return 0;
+    });
+    
+    // Переміщаємо відсортовані елементи
+    visibleItems.forEach(item => {
+        weaponContent.appendChild(item);
+    });
+}
+
+// Модифікуємо функцію openCategory для ініціалізації пошуку і сортування
+function enhancedOpenCategory(originalFn) {
+    return function(category) {
+        // Викликаємо оригінальну функцію
+        originalFn(category);
+        
+        // Додаємо елементи управління після завантаження категорії
+        setTimeout(() => {
+            // Видаляємо попередні елементи керування, якщо вони є
+            const existingControls = document.querySelector('.controls-container');
+            if (existingControls) {
+                existingControls.remove();
+            }
+            
+            // Додаємо нові елементи керування
+            addSortingAndSearch();
+            
+            // Сортуємо за замовчуванням
+            const sortSelect = document.getElementById('sort-select');
+            if (sortSelect) {
+                sortWeapons(sortSelect.value);
+            }
+        }, 300); // Невелика затримка для завершення завантаження зброї
+    };
+}
+
+// Функція для підключення нових функцій
+function initializeEnhancedFunctionality() {
+    // Зберігаємо оригінальну функцію
+    const originalOpenCategory = window.openCategory;
+    
+    // Змінюємо глобальну функцію на нашу розширену версію
+    window.openCategory = enhancedOpenCategory(originalOpenCategory);
+    
+    console.log('Enhanced functionality initialized!');
+}
+
+// Виконуємо ініціалізацію після завантаження сторінки
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeEnhancedFunctionality);
+} else {
+    initializeEnhancedFunctionality();
+}
+
+        // Функція для перевірки та відображення повідомлення про відсутність результатів
+function checkNoResults() {
+    const weaponContent = document.getElementById('weapon-content');
+    const visibleItems = document.querySelectorAll('.weapon-item:not([style*="display: none"])');
+    
+    // Видаляємо попереднє повідомлення, якщо воно є
+    const existingMessage = document.querySelector('.no-results');
+    if (existingMessage) {
+        existingMessage.remove();
+    }
+    
+    // Якщо немає видимих елементів, показуємо повідомлення
+    if (visibleItems.length === 0) {
+        const noResults = document.createElement('div');
+        noResults.className = 'no-results';
+        noResults.textContent = 'Немає зброї, що відповідає вашому пошуку';
+        weaponContent.appendChild(noResults);
+    }
+}
+
+// Розширена функція фільтрації зброї з урахуванням додаткових параметрів
+function enhancedFilterWeapons() {
+    const searchInput = document.getElementById('search-input');
+    const query = searchInput.value.toLowerCase().trim();
+    const weaponItems = document.querySelectorAll('.weapon-item');
+    
+    // Якщо пошуковий запит порожній, показуємо всі елементи
+    if (query === '') {
+        weaponItems.forEach(item => {
+            item.style.display = 'block';
+        });
+    } else {
+        // Фільтруємо елементи за пошуковим запитом
+        weaponItems.forEach(item => {
+            const weaponName = item.querySelector('.weapon-name').textContent.toLowerCase();
+            
+            // Шукаємо входження запиту в назві зброї
+            if (weaponName.includes(query)) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    }
+    
+    // Перевіряємо наявність результатів і виводимо повідомлення, якщо потрібно
+    checkNoResults();
+    
+    // Після фільтрації також застосовуємо поточне сортування
+    const sortSelect = document.getElementById('sort-select');
+    if (sortSelect) {
+        enhancedSortWeapons(sortSelect.value);
+    }
+}
+
+// Розширена функція сортування з підтримкою всіх параметрів
+function enhancedSortWeapons(sortType) {
+    const weaponContent = document.getElementById('weapon-content');
+    const weaponItems = Array.from(document.querySelectorAll('.weapon-item'));
+    
+    // Фільтруємо тільки видимі елементи (для врахування пошуку)
+    const visibleItems = weaponItems.filter(item => item.style.display !== 'none');
+    
+    // Сортуємо зброю залежно від обраного типу сортування
+    visibleItems.sort((a, b) => {
+        const nameA = a.querySelector('.weapon-name').textContent;
+        const nameB = b.querySelector('.weapon-name').textContent;
+        
+        // Отримуємо дані зброї з глобального об'єкта (якщо вони доступні)
+        const weaponDataA = weaponsData ? weaponsData[nameA] : null;
+        const weaponDataB = weaponsData ? weaponsData[nameB] : null;
+        
+        // Перевіряємо тип сортування
+        switch(sortType) {
+            case 'name-asc': // За назвою (А-Я)
+                return nameA.localeCompare(nameB, 'uk');
+                
+            case 'name-desc': // За назвою (Я-А)
+                return nameB.localeCompare(nameA, 'uk');
+                
+            case 'recent': // За недавністю (якщо є дата додавання)
+                // Якщо є доступні дані про дату додавання зброї
+                const dateA = a.dataset.addedDate ? new Date(a.dataset.addedDate) : new Date(0);
+                const dateB = b.dataset.addedDate ? new Date(b.dataset.addedDate) : new Date(0);
+                return dateB - dateA;
+                
+            case 'price-asc': // За ціною (від низької до високої)
+                const priceA = weaponDataA && weaponDataA.price ? weaponDataA.price : 9999;
+                const priceB = weaponDataB && weaponDataB.price ? weaponDataB.price : 9999;
+                return priceA - priceB;
+                
+            case 'price-desc': // За ціною (від високої до низької)
+                const priceHighA = weaponDataA && weaponDataA.price ? weaponDataA.price : 0;
+                const priceHighB = weaponDataB && weaponDataB.price ? weaponDataB.price : 0;
+                return priceHighB - priceHighA;
+                
+            case 'rank-asc': // За рангом розблокування (зростання)
+                const rankA = weaponDataA && weaponDataA.unlockRank ? weaponDataA.unlockRank : 100;
+                const rankB = weaponDataB && weaponDataB.unlockRank ? weaponDataB.unlockRank : 100;
+                return rankA - rankB;
+                
+            case 'rank-desc': // За рангом розблокування (спадання)
+                const rankHighA = weaponDataA && weaponDataA.unlockRank ? weaponDataA.unlockRank : 0;
+                const rankHighB = weaponDataB && weaponDataB.unlockRank ? weaponDataB.unlockRank : 0;
+                return rankHighB - rankHighA;
+                
+            case 'damage-desc': // За пошкодженням (від високого до низького)
+                const damageA = weaponDataA && weaponDataA.variants && weaponDataA.variants[0] ? 
+                    weaponDataA.variants[0].damage : 0;
+                const damageB = weaponDataB && weaponDataB.variants && weaponDataB.variants[0] ? 
+                    weaponDataB.variants[0].damage : 0;
+                return damageB - damageA;
+                
+            case 'range-desc': // За дальністю (від високої до низької)
+                const rangeA = weaponDataA && weaponDataA.variants && weaponDataA.variants[0] ? 
+                    weaponDataA.variants[0].effectiveRange : 0;
+                const rangeB = weaponDataB && weaponDataB.variants && weaponDataB.variants[0] ? 
+                    weaponDataB.variants[0].effectiveRange : 0;
+                return rangeB - rangeA;
+                
+            default:
+                return 0;
+        }
+    });
+    
+    // Переміщаємо відсортовані елементи
+    visibleItems.forEach(item => {
+        weaponContent.appendChild(item);
+    });
+    
+    // Перевіряємо наявність результатів
+    checkNoResults();
+}
+
+// Функція для створення розширеного інтерфейсу сортування та пошуку
+function createEnhancedSortingAndSearch() {
+    const weaponDisplay = document.getElementById('weapon-display');
+    const weaponContent = document.getElementById('weapon-content');
+    
+    // Видаляємо попередні елементи керування, якщо вони є
+    const existingControls = document.querySelector('.controls-container');
+    if (existingControls) {
+        existingControls.remove();
+    }
+    
+    // Створюємо контейнер для елементів керування
+    const controlsContainer = document.createElement('div');
+    controlsContainer.className = 'controls-container';
+    
+    // Створюємо поле пошуку
+    const searchContainer = document.createElement('div');
+    searchContainer.className = 'search-container';
+    
+    const searchInput = document.createElement('input');
+    searchInput.type = 'text';
+    searchInput.id = 'search-input';
+    searchInput.placeholder = 'Пошук зброї...';
+    searchInput.autocomplete = 'off';
+    
+    // Додаємо прослуховувач подій для пошуку з затримкою для покращення продуктивності
+    let searchTimeout;
+    searchInput.addEventListener('input', function() {
+        // Скасовуємо попередній таймаут
+        clearTimeout(searchTimeout);
+        
+        // Встановлюємо новий таймаут для виконання пошуку
+        searchTimeout = setTimeout(() => {
+            enhancedFilterWeapons();
+        }, 300); // Затримка 300 мс для зменшення навантаження
+    });
+    
+    // Додаємо обробник події для клавіші Enter
+    searchInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            clearTimeout(searchTimeout);
+            enhancedFilterWeapons();
+        }
+    });
+    
+    searchContainer.appendChild(searchInput);
+    
+    // Створюємо селектор для сортування
+    const sortContainer = document.createElement('div');
+    sortContainer.className = 'sort-container';
+    
+    const sortLabel = document.createElement('label');
+    sortLabel.htmlFor = 'sort-select';
+    sortLabel.textContent = 'Сортувати за: ';
+    sortLabel.style.color = '#aaa';
+    sortLabel.style.marginRight = '10px';
+    
+    const sortSelect = document.createElement('select');
+    sortSelect.id = 'sort-select';
+    
+    // Базовий список опцій сортування
+    const sortOptions = [
+        { value: 'name-asc', text: 'Назва (А-Я)' },
+        { value: 'name-desc', text: 'Назва (Я-А)' }
+    ];
+    
+    // Перевіряємо наявність даних про зброю
+    if (weaponsData && Object.keys(weaponsData).length > 0) {
+        // Додаємо сортування за ціною
+        sortOptions.push(
+            { value: 'price-asc', text: 'Ціна (від низької до високої)' },
+            { value: 'price-desc', text: 'Ціна (від високої до низької)' }
+        );
+        
+        // Додаємо сортування за рангом розблокування
+        sortOptions.push(
+            { value: 'rank-asc', text: 'Ранг розблокування (зростання)' },
+            { value: 'rank-desc', text: 'Ранг розблокування (спадання)' }
+        );
+        
+        // Додаємо сортування за пошкодженням і дальністю
+        sortOptions.push(
+            { value: 'damage-desc', text: 'Пошкодження (спадання)' },
+            { value: 'range-desc', text: 'Дальність (спадання)' }
+        );
+    }
+    
+    // Додаємо сортування за датою додавання
+    sortOptions.push({ value: 'recent', text: 'Недавно додані' });
+    
+    // Створюємо елементи опцій сортування
+    sortOptions.forEach(option => {
+        const optionElement = document.createElement('option');
+        optionElement.value = option.value;
+        optionElement.textContent = option.text;
+        sortSelect.appendChild(optionElement);
+    });
+    
+    // Додаємо обробник події для зміни сортування
+    sortSelect.addEventListener('change', function() {
+        enhancedSortWeapons(this.value);
+    });
+    
+    sortContainer.appendChild(sortLabel);
+    sortContainer.appendChild(sortSelect);
+    
+    // Додаємо елементи в контейнер
+    controlsContainer.appendChild(searchContainer);
+    controlsContainer.appendChild(sortContainer);
+    
+    // Додаємо контейнер перед контентом зброї
+    weaponDisplay.insertBefore(controlsContainer, weaponContent);
+    
+    // Фокусуємося на полі пошуку (для зручності)
+    setTimeout(() => {
+        searchInput.focus();
+    }, 100);
+}
+
+// Функція для оновлення функціональності openCategory
+function updateOpenCategoryFunction() {
+    // Зберігаємо оригінальну функцію
+    const originalOpenCategory = window.openCategory;
+    
+    // Заміняємо функцію на розширену версію
+    window.openCategory = function(category) {
+        // Викликаємо оригінальну функцію
+        originalOpenCategory(category);
+        
+        // Додаємо елементи управління після завантаження категорії
+        setTimeout(() => {
+            createEnhancedSortingAndSearch();
+            
+            // Сортуємо за замовчуванням
+            const sortSelect = document.getElementById('sort-select');
+            if (sortSelect) {
+                enhancedSortWeapons(sortSelect.value);
+            }
+            
+            // Перевіряємо наявність результатів
+            checkNoResults();
+        }, 500); // Збільшуємо затримку, щоб дати час на завантаження зброї
+    };
+}
+
+// Ініціалізуємо функціональність
+function initializeSearchAndSort() {
+    updateOpenCategoryFunction();
+    console.log('Розширена функціональність пошуку та сортування ініціалізована');
+}
+
+// Виконуємо ініціалізацію після завантаження сторінки
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeSearchAndSort);
+} else {
+    initializeSearchAndSort();
+}
+        
+            </script>
 </body>
 </html>
