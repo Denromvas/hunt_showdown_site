@@ -1393,5 +1393,1859 @@
         "image": "Martini Henry Marksman.jpg"
       }
     ]
+  },
+  "Bornheim No. 3 Extended": {
+    "category": "handguns",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standart",
+        "ammoName": "Стандартні набої",
+        "damage": 74,
+        "effectiveRange": 80,
+        "rateOfFire": 44,
+        "cycleTime": 0.2,
+        "spread": 25,
+        "sway": 128,
+        "verticalRecoil": 6,
+        "reloadSpeed": 9.6,
+        "muzzleVelocity": 380,
+        "meleeBaseDamage": 13,
+        "meleeHeavyDamage": 31,
+        "staminaCost": 20,
+        "image": "Bornheim No. 3 Extended.jpg"
+      }
+    ]
+  },
+  "Bornheim No. 3 Match": {
+    "category": "handguns",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standart",
+        "ammoName": "Стандартні набої",
+        "damage": 80,
+        "effectiveRange": 85,
+        "rateOfFire": 65,
+        "cycleTime": 0.2,
+        "spread": 22.5,
+        "sway": 87,
+        "verticalRecoil": 3,
+        "reloadSpeed": 7.6,
+        "muzzleVelocity": 400,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Bornheim No. 3 Match.jpg"
+      }
+    ]
+  },
+  "Bornheim No. 3 Silencer": {
+    "category": "handguns",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standart",
+        "ammoName": "Стандартні набої",
+        "damage": 74,
+        "effectiveRange": 70,
+        "rateOfFire": 65,
+        "cycleTime": 0.2,
+        "spread": 25,
+        "sway": 128,
+        "verticalRecoil": 6,
+        "reloadSpeed": 7.4,
+        "muzzleVelocity": 323,
+        "meleeBaseDamage": 13,
+        "meleeHeavyDamage": 31,
+        "staminaCost": 20,
+        "image": "Bornheim No. 3 Silencer.jpg"
+      }
+    ]
+  },
+  "Bornheim No. 3": {
+    "category": "handguns",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standart",
+        "ammoName": "Стандартні набої",
+        "damage": 74,
+        "effectiveRange": 80,
+        "rateOfFire": 65,
+        "cycleTime": 0.2,
+        "spread": 25,
+        "sway": 128,
+        "verticalRecoil": 6,
+        "reloadSpeed": 7.4,
+        "muzzleVelocity": 380,
+        "meleeBaseDamage": 13,
+        "meleeHeavyDamage": 31,
+        "staminaCost": 20,
+        "image": "Bornheim No. 3.jpg"
+      }
+    ]
+  },
+  "Conversion Chain Pistol Raíz Mala": {
+    "category": "handguns",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standart",
+        "ammoName": "Стандартні набої",
+        "damage": 104,
+        "effectiveRange": 75,
+        "rateOfFire": 24,
+        "cycleTime": 1.4,
+        "spread": 45,
+        "sway": 128,
+        "verticalRecoil": 3.5,
+        "reloadSpeed": 28.7,
+        "muzzleVelocity": 300,
+        "meleeBaseDamage": 13,
+        "meleeHeavyDamage": 31,
+        "staminaCost": 20,
+        "image": "Conversion Chain Pistol Raíz Mala.jpg"
+      }
+    ]
+  },
+  "Dolch 96": {
+    "category": "handguns",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standart",
+        "ammoName": "Стандартні набої",
+        "damage": 97,
+        "effectiveRange": 70,
+        "rateOfFire": 64,
+        "cycleTime": 0.4,
+        "spread": 35,
+        "sway": 128,
+        "verticalRecoil": 14,
+        "reloadSpeed": 6,
+        "muzzleVelocity": 440,
+        "meleeBaseDamage": 13,
+        "meleeHeavyDamage": 31,
+        "staminaCost": 20,
+        "image": "Dolch 96.jpg"
+      }
+    ]
+  },
+  "Nagant M1895 Silencer": {
+    "category": "handguns",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standart",
+        "ammoName": "Стандартні набої",
+        "damage": 91,
+        "effectiveRange": 60,
+        "rateOfFire": 21,
+        "cycleTime": 1.5,
+        "spread": 45,
+        "sway": 128,
+        "verticalRecoil": 4,
+        "reloadSpeed": 12.5,
+        "muzzleVelocity": 280,
+        "meleeBaseDamage": 13,
+        "meleeHeavyDamage": 31,
+        "staminaCost": 20,
+        "image": "Nagant M1895 Silencer.jpg"
+      }
+    ]
+  },
+  "Uppercut Deadeye": {
+    "category": "handguns",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standart",
+        "ammoName": "Стандартні набої",
+        "damage": 123,
+        "effectiveRange": 60,
+        "rateOfFire": 18,
+        "cycleTime": 1.4,
+        "spread": 40,
+        "sway": 87,
+        "verticalRecoil": 14,
+        "reloadSpeed": 18.3,
+        "muzzleVelocity": 410,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Uppercut Deadeye.jpg"
+      }
+    ]
+  },
+  "Dolch 96 Bullseye": {
+    "category": "handguns",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 97,
+        "effectiveRange": 70,
+        "rateOfFire": 40,
+        "cycleTime": 0.4,
+        "spread": 50,
+        "sway": 106,
+        "verticalRecoil": 14,
+        "reloadSpeed": 21.7,
+        "muzzleVelocity": 440,
+        "meleeBaseDamage": 13,
+        "meleeHeavyDamage": 31,
+        "staminaCost": 20,
+        "image": "Dolch 96 Bullseye.jpg"
+      }
+    ]
+  },
+  "Dolch 96 Claw": {
+    "category": "handguns",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 97,
+        "effectiveRange": 70,
+        "rateOfFire": 64,
+        "cycleTime": 0.4,
+        "spread": 35,
+        "sway": 128,
+        "verticalRecoil": 14,
+        "reloadSpeed": 6,
+        "muzzleVelocity": 440,
+        "meleeBaseDamage": 52,
+        "meleeHeavyDamage": 105,
+        "staminaCost": 25,
+        "image": "Dolch 96 Claw.jpg"
+      }
+    ]
+  },
+  "Dolch 96 Precision": {
+    "category": "handguns",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 97,
+        "effectiveRange": 70,
+        "rateOfFire": 64,
+        "cycleTime": 0.3,
+        "spread": 30,
+        "sway": 87,
+        "verticalRecoil": 12,
+        "reloadSpeed": 6,
+        "muzzleVelocity": 440,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Dolch 96 Precision.jpg"
+      }
+    ]
+  },
+  "Haymaker": {
+    "category": "handguns",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 122,
+        "effectiveRange": 65,
+        "rateOfFire": 18,
+        "cycleTime": 1.3,
+        "spread": 40,
+        "sway": 100,
+        "verticalRecoil": 23,
+        "reloadSpeed": 21.8,
+        "muzzleVelocity": 530,
+        "meleeBaseDamage": 13,
+        "meleeHeavyDamage": 31,
+        "staminaCost": 20,
+        "image": "Haymaker.jpg"
+      }
+    ]
+  },
+  "LeMat": {
+    "category": "handguns",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 97,
+        "effectiveRange": 75,
+        "rateOfFire": 25,
+        "cycleTime": 1.3,
+        "spread": 40,
+        "sway": 128,
+        "verticalRecoil": 6,
+        "reloadSpeed": 15.8,
+        "muzzleVelocity": 375,
+        "meleeBaseDamage": 13,
+        "meleeHeavyDamage": 31,
+        "staminaCost": 20,
+        "image": "LeMat.jpg"
+      }
+    ]
+  },
+  "Nagant M1895 Copperhead": {
+    "category": "handguns",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 91,
+        "effectiveRange": 70,
+        "rateOfFire": 21,
+        "cycleTime": 1.5,
+        "spread": 40,
+        "sway": 128,
+        "verticalRecoil": 4,
+        "reloadSpeed": 12.5,
+        "muzzleVelocity": 330,
+        "meleeBaseDamage": 13,
+        "meleeHeavyDamage": 31,
+        "staminaCost": 20,
+        "image": "Nagant M1895 Copperhead.jpg"
+      }
+    ]
+  },
+  "Nagant M1895 Deadeye": {
+    "category": "handguns",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 91,
+        "effectiveRange": 70,
+        "rateOfFire": 21,
+        "cycleTime": 1.2,
+        "spread": 35,
+        "sway": 87,
+        "verticalRecoil": 1.5,
+        "reloadSpeed": 13.4,
+        "muzzleVelocity": 330,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Nagant M1895 Deadeye.jpg"
+      }
+    ]
+  },
+  "Nagant M1895 Precision": {
+    "category": "handguns",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 91,
+        "effectiveRange": 70,
+        "rateOfFire": 21,
+        "cycleTime": 1,
+        "spread": 27.5,
+        "sway": 87,
+        "verticalRecoil": 1.5,
+        "reloadSpeed": 13.4,
+        "muzzleVelocity": 330,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Nagant M1895 Precision.jpg"
+      }
+    ]
+  },
+  "New Army Deputy": {
+    "category": "handguns",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 97,
+        "effectiveRange": 75,
+        "rateOfFire": 30,
+        "cycleTime": 0.5,
+        "spread": 47.5,
+        "sway": 128,
+        "verticalRecoil": 5,
+        "reloadSpeed": 9.5,
+        "muzzleVelocity": 230,
+        "meleeBaseDamage": 13,
+        "meleeHeavyDamage": 31,
+        "staminaCost": 20,
+        "image": "New Army Deputy.jpg"
+      }
+    ]
+  },
+  "New Army Swift Fatal Scurry": {
+    "category": "handguns",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 97,
+        "effectiveRange": 75,
+        "rateOfFire": 40,
+        "cycleTime": 0.5,
+        "spread": 47.5,
+        "sway": 128,
+        "verticalRecoil": 5,
+        "reloadSpeed": 5.6,
+        "muzzleVelocity": 230,
+        "meleeBaseDamage": 13,
+        "meleeHeavyDamage": 31,
+        "staminaCost": 20,
+        "image": "New Army Swift Fatal Scurry.jpg"
+      }
+    ]
+  },
+  "Officer Brawler Death Letter": {
+    "category": "handguns",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 91,
+        "effectiveRange": 70,
+        "rateOfFire": 28,
+        "cycleTime": 0.5,
+        "spread": 50,
+        "sway": 128,
+        "verticalRecoil": 5,
+        "reloadSpeed": 12.8,
+        "muzzleVelocity": 330,
+        "meleeBaseDamage": 31,
+        "meleeHeavyDamage": 72,
+        "staminaCost": 10,
+        "image": "Officer Brawler Death Letter.jpg"
+      }
+    ]
+  },
+  "Officer Sisters Keeper": {
+    "category": "handguns",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 91,
+        "effectiveRange": 70,
+        "rateOfFire": 28,
+        "cycleTime": 0.5,
+        "spread": 50,
+        "sway": 128,
+        "verticalRecoil": 5,
+        "reloadSpeed": 12.8,
+        "muzzleVelocity": 330,
+        "meleeBaseDamage": 13,
+        "meleeHeavyDamage": 31,
+        "staminaCost": 20,
+        "image": "Officer Sisters Keeper.jpg"
+      }
+    ]
+  },
+  "Pax Claw Ripper": {
+    "category": "handguns",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 110,
+        "effectiveRange": 65,
+        "rateOfFire": 22,
+        "cycleTime": 1.4,
+        "spread": 32.5,
+        "sway": 128,
+        "verticalRecoil": 10,
+        "reloadSpeed": 11.2,
+        "muzzleVelocity": 330,
+        "meleeBaseDamage": 52,
+        "meleeHeavyDamage": 105,
+        "staminaCost": 25,
+        "image": "Pax Claw Ripper.jpg"
+      }
+    ]
+  },
+  "Pax Hyde": {
+    "category": "handguns",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 110,
+        "effectiveRange": 65,
+        "rateOfFire": 22,
+        "cycleTime": 1.4,
+        "spread": 32.5,
+        "sway": 128,
+        "verticalRecoil": 10,
+        "reloadSpeed": 11.2,
+        "muzzleVelocity": 330,
+        "meleeBaseDamage": 13,
+        "meleeHeavyDamage": 31,
+        "staminaCost": 20,
+        "image": "Pax Hyde.jpg"
+      }
+    ]
+  },
+  "Pax Trueshot Intricate Demise": {
+    "category": "handguns",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 114,
+        "effectiveRange": 80,
+        "rateOfFire": 18,
+        "cycleTime": 1.6,
+        "spread": 27.5,
+        "sway": 128,
+        "verticalRecoil": 16,
+        "reloadSpeed": 11.2,
+        "muzzleVelocity": 410,
+        "meleeBaseDamage": 13,
+        "meleeHeavyDamage": 31,
+        "staminaCost": 20,
+        "image": "Pax Trueshot Intricate Demise.jpg"
+      }
+    ]
+  },
+  "Scottfield Brawler Knuckle Shunt": {
+    "category": "handguns",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 107,
+        "effectiveRange": 60,
+        "rateOfFire": 24,
+        "cycleTime": 1.5,
+        "spread": 36,
+        "sway": 128,
+        "verticalRecoil": 12,
+        "reloadSpeed": 9,
+        "muzzleVelocity": 280,
+        "meleeBaseDamage": 31,
+        "meleeHeavyDamage": 72,
+        "staminaCost": 10,
+        "image": "Scottfield Brawler Knuckle Shunt.jpg"
+      }
+    ]
+  },
+  "Scottfield Precision": {
+    "category": "handguns",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 107,
+        "effectiveRange": 65,
+        "rateOfFire": 27,
+        "cycleTime": 1,
+        "spread": 28.1,
+        "sway": 87,
+        "verticalRecoil": 3,
+        "reloadSpeed": 9,
+        "muzzleVelocity": 280,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Scottfield Precision.jpg"
+      }
+    ]
+  },
+  "Scottfield Spitfire Cobra da Várzea": {
+    "category": "handguns",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 107,
+        "effectiveRange": 60,
+        "rateOfFire": 30,
+        "cycleTime": 0.8,
+        "spread": 36,
+        "sway": 128,
+        "verticalRecoil": 12,
+        "reloadSpeed": 9,
+        "muzzleVelocity": 280,
+        "meleeBaseDamage": 13,
+        "meleeHeavyDamage": 31,
+        "staminaCost": 20,
+        "image": "Scottfield Spitfire Cobra da Várzea.jpg"
+      }
+    ]
+  },
+  "Scottfield Swift": {
+    "category": "handguns",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 107,
+        "effectiveRange": 65,
+        "rateOfFire": 30,
+        "cycleTime": 1.5,
+        "spread": 28.1,
+        "sway": 128,
+        "verticalRecoil": 9,
+        "reloadSpeed": 4.3,
+        "muzzleVelocity": 280,
+        "meleeBaseDamage": 13,
+        "meleeHeavyDamage": 31,
+        "staminaCost": 20,
+        "image": "Scottfield Swift.jpg"
+      }
+    ]
+  },
+  "Scottfield": {
+    "category": "handguns",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 107,
+        "effectiveRange": 65,
+        "rateOfFire": 24,
+        "cycleTime": 1.5,
+        "spread": 28.1,
+        "sway": 128,
+        "verticalRecoil": 9,
+        "reloadSpeed": 9,
+        "muzzleVelocity": 280,
+        "meleeBaseDamage": 13,
+        "meleeHeavyDamage": 31,
+        "staminaCost": 20,
+        "image": "Scottfield.jpg"
+      }
+    ]
+  },
+  "Uppercut Midnight Howl": {
+    "category": "handguns",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 123,
+        "effectiveRange": 60,
+        "rateOfFire": 18,
+        "cycleTime": 1.6,
+        "spread": 40,
+        "sway": 128,
+        "verticalRecoil": 23,
+        "reloadSpeed": 16,
+        "muzzleVelocity": 410,
+        "meleeBaseDamage": 13,
+        "meleeHeavyDamage": 31,
+        "staminaCost": 20,
+        "image": "Uppercut Midnight Howl.jpg"
+      }
+    ]
+  },
+  "Uppercut Precision": {
+    "category": "handguns",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 123,
+        "effectiveRange": 60,
+        "rateOfFire": 18,
+        "cycleTime": 1.4,
+        "spread": 35,
+        "sway": 87,
+        "verticalRecoil": 11,
+        "reloadSpeed": 18.3,
+        "muzzleVelocity": 410,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Uppercut Precision.jpg"
+      }
+    ]
+  },
+  "Martini Henry Deadeye": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 143,
+        "effectiveRange": 125,
+        "rateOfFire": 18,
+        "cycleTime": 3.5,
+        "spread": 52.5,
+        "sway": 69,
+        "verticalRecoil": 12,
+        "reloadSpeed": 2.7,
+        "muzzleVelocity": 400,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Martini Henry Deadeye.jpg"
+      }
+    ]
+  },
+  "Martini Henry Riposte": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 143,
+        "effectiveRange": 125,
+        "rateOfFire": 18,
+        "cycleTime": 3.5,
+        "spread": 42.5,
+        "sway": 77,
+        "verticalRecoil": 12,
+        "reloadSpeed": 2.7,
+        "muzzleVelocity": 400,
+        "meleeBaseDamage": 82,
+        "meleeHeavyDamage": 168,
+        "staminaCost": 25,
+        "image": "Martini Henry Riposte.jpg"
+      }
+    ]
+  },
+  "Mosin Nagant Avtomat": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standart",
+        "ammoName": "Стандартні набої",
+        "damage": 136,
+        "effectiveRange": 135,
+        "rateOfFire": 75,
+        "cycleTime": 0.1,
+        "spread": 100,
+        "sway": 133,
+        "verticalRecoil": 8,
+        "reloadSpeed": 11.4,
+        "muzzleVelocity": 615,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Mosin Nagant Avtomat.jpg"
+      }
+    ]
+  },
+  "Mosin Nagant Bayonet": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standart",
+        "ammoName": "Стандартні набої",
+        "damage": 136,
+        "effectiveRange": 135,
+        "rateOfFire": 26,
+        "cycleTime": 1.9,
+        "spread": 35,
+        "sway": 77,
+        "verticalRecoil": 10,
+        "reloadSpeed": 3.7,
+        "muzzleVelocity": 615,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 168,
+        "staminaCost": 25,
+        "image": "Mosin Nagant Bayonet.jpg"
+      }
+    ]
+  },
+  "Mosin Nagant Bears Tooth": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standart",
+        "ammoName": "Стандартні набої",
+        "damage": 136,
+        "effectiveRange": 135,
+        "rateOfFire": 26,
+        "cycleTime": 1.9,
+        "spread": 35,
+        "sway": 77,
+        "verticalRecoil": 10,
+        "reloadSpeed": 3.7,
+        "muzzleVelocity": 615,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Mosin Nagant Bears Tooth.jpg"
+      }
+    ]
+  },
+  "Mosin Nagant Sniper": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standart",
+        "ammoName": "Стандартні набої",
+        "damage": 136,
+        "effectiveRange": 135,
+        "rateOfFire": 24,
+        "cycleTime": 1.9,
+        "spread": 70,
+        "sway": 69,
+        "verticalRecoil": 10,
+        "reloadSpeed": 5.3,
+        "muzzleVelocity": 615,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Mosin Nagant Sniper.jpg"
+      }
+    ]
+  },
+  "Mosin Obrez Extended": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standart",
+        "ammoName": "Стандартні набої",
+        "damage": 133,
+        "effectiveRange": 100,
+        "rateOfFire": 29,
+        "cycleTime": 1.9,
+        "spread": 55,
+        "sway": 100,
+        "verticalRecoil": 19,
+        "reloadSpeed": 8,
+        "muzzleVelocity": 550,
+        "meleeBaseDamage": 13,
+        "meleeHeavyDamage": 31,
+        "staminaCost": 25,
+        "image": "Mosin Obrez Extended.jpg"
+      }
+    ]
+  },
+  "Nitro Express Trailstalker": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 364,
+        "effectiveRange": 45,
+        "rateOfFire": 21,
+        "cycleTime": 0.7,
+        "spread": 62.5,
+        "sway": 77,
+        "verticalRecoil": 40,
+        "reloadSpeed": 4.8,
+        "muzzleVelocity": 550,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Nitro Express Trailstalker.jpg"
+      }
+    ]
+  },
+  "Ranger 73 Aperture": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 110,
+        "effectiveRange": 140,
+        "rateOfFire": 31,
+        "cycleTime": 1.2,
+        "spread": 17.5,
+        "sway": 69,
+        "verticalRecoil": 4,
+        "reloadSpeed": 16.4,
+        "muzzleVelocity": 400,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Ranger 73 Aperture.jpg"
+      }
+    ]
+  },
+  "Mosin Obrez Mace": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 133,
+        "effectiveRange": 100,
+        "rateOfFire": 26,
+        "cycleTime": 1.9,
+        "spread": 55,
+        "sway": 100,
+        "verticalRecoil": 19,
+        "reloadSpeed": 3.7,
+        "muzzleVelocity": 550,
+        "meleeBaseDamage": 54,
+        "meleeHeavyDamage": 90,
+        "staminaCost": 10,
+        "image": "Mosin Obrez Mace.jpg"
+      }
+    ]
+  },
+  "Mosin Obrez Rougarou": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 133,
+        "effectiveRange": 100,
+        "rateOfFire": 26,
+        "cycleTime": 1.9,
+        "spread": 55,
+        "sway": 100,
+        "verticalRecoil": 16,
+        "reloadSpeed": 3.7,
+        "muzzleVelocity": 550,
+        "meleeBaseDamage": 13,
+        "meleeHeavyDamage": 31,
+        "staminaCost": 25,
+        "image": "Mosin Obrez Rougarou.jpg"
+      }
+    ]
+  },
+  "Ranger 73 Swift": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standart",
+        "ammoName": "Стандартні набої",
+        "damage": 110,
+        "effectiveRange": 140,
+        "rateOfFire": 41,
+        "cycleTime": 1.2,
+        "spread": 17.5,
+        "sway": 77,
+        "verticalRecoil": 4,
+        "reloadSpeed": 8.4,
+        "muzzleVelocity": 400,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Ranger 73 Swift.jpg"
+      }
+    ]
+  },
+  "Ranger 73 Talon": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standart",
+        "ammoName": "Стандартні набої",
+        "damage": 110,
+        "effectiveRange": 140,
+        "rateOfFire": 31,
+        "cycleTime": 1.2,
+        "spread": 17.5,
+        "sway": 77,
+        "verticalRecoil": 4,
+        "reloadSpeed": 16.4,
+        "muzzleVelocity": 400,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 330,
+        "staminaCost": 33,
+        "image": "Ranger 73 Talon.jpg"
+      }
+    ]
+  },
+  "Sparks Pistol Silencer Post Mortem": {
+    "category": "pistols",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standart",
+        "ammoName": "Стандартні набої",
+        "damage": 149,
+        "effectiveRange": 85,
+        "rateOfFire": 15,
+        "cycleTime": 4.2,
+        "spread": 42.5,
+        "sway": 128,
+        "verticalRecoil": 25,
+        "reloadSpeed": 3.4,
+        "muzzleVelocity": 385,
+        "meleeBaseDamage": 13,
+        "meleeHeavyDamage": 31,
+        "staminaCost": 20,
+        "image": "Sparks Pistol Silencer Post Mortem.jpg"
+      }
+    ]
+  },
+  "Sparks Pistol": {
+    "category": "pistols",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standart",
+        "ammoName": "Стандартні набої",
+        "damage": 149,
+        "effectiveRange": 95,
+        "rateOfFire": 15,
+        "cycleTime": 4.2,
+        "spread": 42.5,
+        "sway": 128,
+        "verticalRecoil": 25,
+        "reloadSpeed": 3.4,
+        "muzzleVelocity": 453,
+        "meleeBaseDamage": 13,
+        "meleeHeavyDamage": 31,
+        "staminaCost": 20,
+        "image": "Sparks Pistol.jpg"
+      }
+    ]
+  },
+  "Sparks Silencer": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standart",
+        "ammoName": "Стандартні набої",
+        "damage": 149,
+        "effectiveRange": 110,
+        "rateOfFire": 13,
+        "cycleTime": 4.9,
+        "spread": 42.5,
+        "sway": 87,
+        "verticalRecoil": 10,
+        "reloadSpeed": 4,
+        "muzzleVelocity": 453,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Sparks Silencer.jpg"
+      }
+    ]
+  },
+  "Springfield 1866 Marksman": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 132,
+        "effectiveRange": 160,
+        "rateOfFire": 19,
+        "cycleTime": 3.3,
+        "spread": 37.5,
+        "sway": 69,
+        "verticalRecoil": 6,
+        "reloadSpeed": 3,
+        "muzzleVelocity": 490,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Springfield 1866 Marksman.jpg"
+      }
+    ]
+  },
+  "Springfield 1866 Shorty": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standard",
+        "ammoName": "Стандартні набої",
+        "damage": 130,
+        "effectiveRange": 120,
+        "rateOfFire": 19,
+        "cycleTime": 3.3,
+        "spread": 40,
+        "sway": 100,
+        "verticalRecoil": 12,
+        "reloadSpeed": 3,
+        "muzzleVelocity": 440,
+        "meleeBaseDamage": 13,
+        "meleeHeavyDamage": 31,
+        "staminaCost": 25,
+        "image": "Springfield 1866 Shorty.jpg"
+      }
+    ]
+  },
+  "Sparks Sniper": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standart",
+        "ammoName": "Стандартні набої",
+        "damage": 149,
+        "effectiveRange": 145,
+        "rateOfFire": 13,
+        "cycleTime": 4.9,
+        "spread": 55,
+        "sway": 69,
+        "verticalRecoil": 10,
+        "reloadSpeed": 4,
+        "muzzleVelocity": 533,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Sparks Sniper.jpg"
+      }
+    ]
+  },
+  "Sparks The Reckoning": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standart",
+        "ammoName": "Стандартні набої",
+        "damage": 149,
+        "effectiveRange": 145,
+        "rateOfFire": 13,
+        "cycleTime": 4.9,
+        "spread": 35,
+        "sway": 77,
+        "verticalRecoil": 10,
+        "reloadSpeed": 4,
+        "muzzleVelocity": 533,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Sparks The Reckoning.jpg"
+      }
+    ]
+  },
+  "Springfield 1866 Bayonet": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standart",
+        "ammoName": "Стандартні набої",
+        "damage": 132,
+        "effectiveRange": 160,
+        "rateOfFire": 19,
+        "cycleTime": 3.3,
+        "spread": 20,
+        "sway": 77,
+        "verticalRecoil": 6,
+        "reloadSpeed": 3,
+        "muzzleVelocity": 490,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 168,
+        "staminaCost": 25,
+        "image": "Springfield 1866 Bayonet.jpg"
+      }
+    ]
+  },
+  "Springfield 1866 Bullseye": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standart",
+        "ammoName": "Стандартні набої",
+        "damage": 130,
+        "effectiveRange": 120,
+        "rateOfFire": 19,
+        "cycleTime": 3.3,
+        "spread": 55,
+        "sway": 93,
+        "verticalRecoil": 12,
+        "reloadSpeed": 3,
+        "muzzleVelocity": 440,
+        "meleeBaseDamage": 13,
+        "meleeHeavyDamage": 31,
+        "staminaCost": 25,
+        "image": "Springfield 1866 Bullseye.jpg"
+      }
+    ]
+  },
+  "Springfield 1866 Karagöz": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standart",
+        "ammoName": "Стандартні набої",
+        "damage": 132,
+        "effectiveRange": 160,
+        "rateOfFire": 19,
+        "cycleTime": 3.3,
+        "spread": 20,
+        "sway": 77,
+        "verticalRecoil": 6,
+        "reloadSpeed": 3,
+        "muzzleVelocity": 490,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Springfield 1866 Karagöz.jpg"
+      }
+    ]
+  },
+  "Springfield 1866 Striker": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standart",
+        "ammoName": "Стандартні набої",
+        "damage": 130,
+        "effectiveRange": 120,
+        "rateOfFire": 19,
+        "cycleTime": 3.3,
+        "spread": 40,
+        "sway": 100,
+        "verticalRecoil": 12,
+        "reloadSpeed": 3,
+        "muzzleVelocity": 440,
+        "meleeBaseDamage": 52,
+        "meleeHeavyDamage": 105,
+        "staminaCost": 21,
+        "image": "Springfield 1866 Striker.jpg"
+      }
+    ]
+  },
+  "Vandal 73C Bullseye": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standart",
+        "ammoName": "Стандартні набої",
+        "damage": 107,
+        "effectiveRange": 120,
+        "rateOfFire": 28,
+        "cycleTime": 1.2,
+        "spread": 35,
+        "sway": 93,
+        "verticalRecoil": 8,
+        "reloadSpeed": 9.4,
+        "muzzleVelocity": 370,
+        "meleeBaseDamage": 13,
+        "meleeHeavyDamage": 31,
+        "staminaCost": 25,
+        "image": "Vandal 73C Bullseye.jpg"
+      }
+    ]
+  },
+  "Vandal 73C Striker": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standart",
+        "ammoName": "Стандартні набої",
+        "damage": 107,
+        "effectiveRange": 120,
+        "rateOfFire": 28,
+        "cycleTime": 1.3,
+        "spread": 25,
+        "sway": 100,
+        "verticalRecoil": 8,
+        "reloadSpeed": 9.4,
+        "muzzleVelocity": 370,
+        "meleeBaseDamage": 52,
+        "meleeHeavyDamage": 105,
+        "staminaCost": 21,
+        "image": "Vandal 73C Striker.jpg"
+      }
+    ]
+  },
+  "Vandal 73C": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standart",
+        "ammoName": "Стандартні набої",
+        "damage": 107,
+        "effectiveRange": 120,
+        "rateOfFire": 28,
+        "cycleTime": 1.2,
+        "spread": 25,
+        "sway": 100,
+        "verticalRecoil": 8,
+        "reloadSpeed": 9.4,
+        "muzzleVelocity": 370,
+        "meleeBaseDamage": 13,
+        "meleeHeavyDamage": 31,
+        "staminaCost": 25,
+        "image": "Vandal 73C.jpg"
+      }
+    ]
+  },
+  "Vetterli 71 Bayonet": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standart",
+        "ammoName": "Стандартні набої",
+        "damage": 130,
+        "effectiveRange": 125,
+        "rateOfFire": 24,
+        "cycleTime": 1.5,
+        "spread": 22.5,
+        "sway": 77,
+        "verticalRecoil": 5,
+        "reloadSpeed": 12.1,
+        "muzzleVelocity": 410,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 168,
+        "staminaCost": 25,
+        "image": "Vetterli 71 Bayonet.jpg"
+      }
+    ]
+  },
+  "Vetterli 71 Cyclone": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standart",
+        "ammoName": "Стандартні набої",
+        "damage": 124,
+        "effectiveRange": 105,
+        "rateOfFire": 27,
+        "cycleTime": 0.6,
+        "spread": 47.5,
+        "sway": 77,
+        "verticalRecoil": 3,
+        "reloadSpeed": 8.4,
+        "muzzleVelocity": 410,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Vetterli 71 Cyclone.jpg"
+      }
+    ]
+  },
+  "Vetterli 71 Deadeye": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standart",
+        "ammoName": "Стандартні набої",
+        "damage": 130,
+        "effectiveRange": 125,
+        "rateOfFire": 24,
+        "cycleTime": 1.5,
+        "spread": 32.5,
+        "sway": 69,
+        "verticalRecoil": 5,
+        "reloadSpeed": 12.1,
+        "muzzleVelocity": 410,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Vetterli 71 Deadeye.jpg"
+      }
+    ]
+  },
+  "Vetterli 71 Marksman": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standart",
+        "ammoName": "Стандартні набої",
+        "damage": 130,
+        "effectiveRange": 125,
+        "rateOfFire": 24,
+        "cycleTime": 1.5,
+        "spread": 42.5,
+        "sway": 69,
+        "verticalRecoil": 5,
+        "reloadSpeed": 12.1,
+        "muzzleVelocity": 410,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Vetterli 71 Marksman.jpg"
+      }
+    ]
+  },
+  "Vetterli 71 Silencer": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standart",
+        "ammoName": "Стандартні набої",
+        "damage": 130,
+        "effectiveRange": 115,
+        "rateOfFire": 24,
+        "cycleTime": 1.5,
+        "spread": 22.5,
+        "sway": 77,
+        "verticalRecoil": 5,
+        "reloadSpeed": 12.1,
+        "muzzleVelocity": 348,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Vetterli 71 Silencer.jpg"
+      }
+    ]
+  },
+  "Vetterli 71": {
+    "category": "rifles",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standart",
+        "ammoName": "Стандартні набої",
+        "damage": 130,
+        "effectiveRange": 125,
+        "rateOfFire": 24,
+        "cycleTime": 1.5,
+        "spread": 22.5,
+        "sway": 77,
+        "verticalRecoil": 5,
+        "reloadSpeed": 12.1,
+        "muzzleVelocity": 410,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Vetterli 71.jpg"
+      }
+    ]
+  },
+  "Officer Carbine Deadeye": {
+    "category": "carbines",
+    "rarity": "Legendary",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standart",
+        "ammoName": "Стандартні набої",
+        "damage": 104,
+        "effectiveRange": 90,
+        "rateOfFire": 28,
+        "cycleTime": 0.5,
+        "spread": 40,
+        "sway": 69,
+        "verticalRecoil": 4,
+        "reloadSpeed": 13.4,
+        "muzzleVelocity": 360,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Officer Carbine Deadeye.jpg"
+      }
+    ]
+  },
+  "Officer Carbine": {
+    "category": "carbines",
+    "rarity": "Common",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standart",
+        "ammoName": "Стандартні набої",
+        "damage": 104,
+        "effectiveRange": 90,
+        "rateOfFire": 28,
+        "cycleTime": 0.5,
+        "spread": 25,
+        "sway": 77,
+        "verticalRecoil": 4,
+        "reloadSpeed": 13.4,
+        "muzzleVelocity": 360,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Officer Carbine.jpg"
+      }
+    ]
+  },
+  "LeMat Carbine Marksman": {
+    "category": "carbines",
+    "rarity": "Common",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standart",
+        "ammoName": "Стандартні набої",
+        "damage": 107,
+        "effectiveRange": 130,
+        "rateOfFire": 21,
+        "cycleTime": 1.2,
+        "spread": 55,
+        "sway": 69,
+        "verticalRecoil": 2.5,
+        "reloadSpeed": 18.7,
+        "muzzleVelocity": 460,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "LeMat Carbine Marksman.jpg"
+      }
+    ]
+  },
+  "LeMat Carbine": {
+    "category": "carbines",
+    "rarity": "Epic",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standart",
+        "ammoName": "Стандартні набої",
+        "damage": 107,
+        "effectiveRange": 130,
+        "rateOfFire": 21,
+        "cycleTime": 1.2,
+        "spread": 35,
+        "sway": 77,
+        "verticalRecoil": 2.5,
+        "reloadSpeed": 18.7,
+        "muzzleVelocity": 460,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "LeMat Carbine.jpg"
+      }
+    ]
+  },
+  "Chu Ko Nu": {
+    "category": "special",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standart",
+        "ammoName": "Стандартні набої",
+        "damage": 150,
+        "effectiveRange": 15,
+        "rateOfFire": 40,
+        "cycleTime": 0.7,
+        "spread": 10,
+        "sway": 100,
+        "verticalRecoil": 2,
+        "reloadSpeed": 8.5,
+        "muzzleVelocity": 100,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Chu Ko Nu.jpg"
+      }
+    ]
+  },
+  "Crossbow Deadeye": {
+    "category": "special",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standart",
+        "ammoName": "Стандартні набої",
+        "damage": 246,
+        "effectiveRange": 20,
+        "rateOfFire": 13,
+        "cycleTime": 4.8,
+        "spread": 30,
+        "sway": 69,
+        "verticalRecoil": 4,
+        "reloadSpeed": 5.3,
+        "muzzleVelocity": 150,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Crossbow Deadeye.jpg"
+      }
+    ]
+  },
+  "Crossbow": {
+    "category": "special",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standart",
+        "ammoName": "Стандартні набої",
+        "damage": 246,
+        "effectiveRange": 20,
+        "rateOfFire": 13,
+        "cycleTime": 4.8,
+        "spread": 30,
+        "sway": 77,
+        "verticalRecoil": 4,
+        "reloadSpeed": 5.3,
+        "muzzleVelocity": 150,
+        "meleeBaseDamage": 27,
+        "meleeHeavyDamage": 54,
+        "staminaCost": 25,
+        "image": "Crossbow.jpg"
+      }
+    ]
+  },
+  "Hand Crossbow": {
+    "category": "special",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standart",
+        "ammoName": "Стандартні набої",
+        "damage": 195,
+        "effectiveRange": 15,
+        "rateOfFire": 14,
+        "cycleTime": 4.5,
+        "spread": 25,
+        "sway": 82,
+        "verticalRecoil": 1.2,
+        "reloadSpeed": 4.3,
+        "muzzleVelocity": 100,
+        "meleeBaseDamage": 13,
+        "meleeHeavyDamage": 27,
+        "staminaCost": 10,
+        "image": "Hand Crossbow.jpg"
+      }
+    ]
+  },
+  "Hunting Bow": {
+    "category": "special",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standart",
+        "ammoName": "Стандартні набої",
+        "damage": 250,
+        "effectiveRange": 30,
+        "rateOfFire": 51,
+        "cycleTime": 1.3,
+        "spread": 12.5,
+        "sway": 82,
+        "verticalRecoil": 1,
+        "reloadSpeed": 0.6,
+        "muzzleVelocity": 150,
+        "meleeBaseDamage": 13,
+        "meleeHeavyDamage": 31,
+        "staminaCost": 25,
+        "image": "Hunting Bow.jpg"
+      }
+    ]
+  },
+  "Bomb Launcher": {
+    "category": "special",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standart",
+        "ammoName": "Стандартні набої",
+        "damage": 150,
+        "effectiveRange": 5,
+        "rateOfFire": 13,
+        "cycleTime": 5.3,
+        "spread": 25,
+        "reloadSpeed": 5.1,
+        "muzzleVelocity": 60,
+        "meleeBaseDamage": 13,
+        "meleeHeavyDamage": 31,
+        "staminaCost": 25,
+        "image": "Bomb Launcher.jpg"
+      }
+    ]
+  },
+  "Bomb Lance": {
+    "category": "special",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "ammoType": "standart",
+        "ammoName": "Стандартні набої",
+        "damage": 150,
+        "effectiveRange": 5,
+        "rateOfFire": 9,
+        "cycleTime": 7.3,
+        "spread": 37.5,
+        "reloadSpeed": 6.9,
+        "muzzleVelocity": 60,
+        "meleeBaseDamage": 180,
+        "meleeHeavyDamage": 360,
+        "staminaCost": 50,
+        "image": "Bomb Lance.jpg"
+      }
+    ]
+  },
+  "Machete": {
+    "category": "melee",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "meleeBaseDamage": 175,
+        "meleeHeavyDamage": 220,
+        "staminaCost": 20,
+        "image": "Machete.jpg"
+      }
+    ]
+  },
+  "Railroad Hammer": {
+    "category": "melee",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "meleeBaseDamage": 170,
+        "meleeHeavyDamage": 520,
+        "staminaCost": 25,
+        "image": "Railroad_Hammer_Gilded_Maul.jpg"
+      }
+    ]
+  },
+  "Baseball Bat": {
+    "category": "melee",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "meleeBaseDamage": 90,
+        "meleeHeavyDamage": 200,
+        "staminaCost": 10,
+        "image": "Baseball_Bat.jpg"
+      }
+    ]
+  },
+  "Cavalry Saber": {
+    "category": "melee",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "meleeBaseDamage": 150,
+        "meleeHeavyDamage": 252,
+        "staminaCost": 25,
+        "image": "Cavalry_Saber.jpg"
+      }
+    ]
+  },
+  "Combat Axe": {
+    "category": "melee",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "meleeBaseDamage": 200,
+        "meleeHeavyDamage": 495,
+        "staminaCost": 25,
+        "image": "Combat_Axe.jpg"
+      }
+    ]
+  },
+  "Katana": {
+    "category": "melee",
+    "price": 1,
+    "unlockRank": 1,
+    "variants": [
+      {
+        "meleeBaseDamage": 165,
+        "meleeHeavyDamage": 280,
+        "staminaCost": 35,
+        "image": "Katana.jpg"
+      }
+    ]
   }
 }
