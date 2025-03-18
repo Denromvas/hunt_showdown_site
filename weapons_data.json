@@ -1394,7 +1394,7 @@
       }
     ]
   },
-  "Bornheim No. 3 Extended": {
+  "Bornheim No 3 Extended": {
     "category": "handguns",
     "price": 1,
     "unlockRank": 1,
@@ -1414,11 +1414,11 @@
         "meleeBaseDamage": 13,
         "meleeHeavyDamage": 31,
         "staminaCost": 20,
-        "image": "Bornheim No. 3 Extended.jpg"
+        "image": "Bornheim No 3 Extended.jpg"
       }
     ]
   },
-  "Bornheim No. 3 Match": {
+  "Bornheim No 3 Match": {
     "category": "handguns",
     "price": 1,
     "unlockRank": 1,
@@ -1438,11 +1438,11 @@
         "meleeBaseDamage": 27,
         "meleeHeavyDamage": 54,
         "staminaCost": 25,
-        "image": "Bornheim No. 3 Match.jpg"
+        "image": "Bornheim No 3 Match.jpg"
       }
     ]
   },
-  "Bornheim No. 3 Silencer": {
+  "Bornheim No 3 Silencer": {
     "category": "handguns",
     "price": 1,
     "unlockRank": 1,
@@ -1462,11 +1462,11 @@
         "meleeBaseDamage": 13,
         "meleeHeavyDamage": 31,
         "staminaCost": 20,
-        "image": "Bornheim No. 3 Silencer.jpg"
+        "image": "Bornheim No 3 Silencer.jpg"
       }
     ]
   },
-  "Bornheim No. 3": {
+  "Bornheim No 3": {
     "category": "handguns",
     "price": 1,
     "unlockRank": 1,
@@ -1486,7 +1486,7 @@
         "meleeBaseDamage": 13,
         "meleeHeavyDamage": 31,
         "staminaCost": 20,
-        "image": "Bornheim No. 3.jpg"
+        "image": "Bornheim No 3.jpg"
       }
     ]
   },
