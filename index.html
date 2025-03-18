@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hunt: Showdown Weapons</title>
     <style>
+
         /* Стилі для контейнера елементів керування */
 .controls-container {
     margin: 20px auto;
@@ -73,21 +74,60 @@
     margin: 10px;
 }
 
+/* Стиль для вирівнювання розмірів полів */
+.sort-container select {
+    width: 100%;
+    box-sizing: border-box;
+}
+
 /* Медіа-запити для адаптивності */
 @media (max-width: 768px) {
     .controls-container {
         flex-direction: column;
         align-items: stretch;
+        padding: 10px;
     }
     
     .search-container, 
     .sort-container {
         width: 100%;
         margin: 5px 0;
+        min-width: 0;
     }
     
-    #sort-select {
+    .sort-container label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    #sort-select,
+    #search-input {
         width: 100%;
+        box-sizing: border-box;
+        height: 40px; /* Фіксована висота для обох елементів */
+    }
+    
+    /* Додаткове вирівнювання відступів для консистентності */
+    #search-input {
+        margin-bottom: 10px;
+    }
+}
+
+/* Покращений стиль для мобільних пристроїв з маленькими екранами */
+@media (max-width: 480px) {
+    .controls-container {
+        padding: 8px;
+        margin: 10px auto;
+    }
+    
+    #search-input,
+    #sort-select {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+    
+    .sort-container label {
+        font-size: 14px;
     }
 }
 
@@ -396,6 +436,7 @@
 function openCategory(category) {
     document.getElementById('weapon-display').style.display = 'block';
     document.getElementById('main-page').classList.add('page-hidden');
+    // Завжди очищуємо контейнер перед додаванням нової зброї
     let weaponContent = document.getElementById('weapon-content');
     weaponContent.innerHTML = '';
 
@@ -487,11 +528,31 @@ function openCategory(category) {
         });
 }
 
-// Автоматичне відновлення категорії після перезавантаження сторінки
+// Перевірка після завантаження сторінки
 document.addEventListener('DOMContentLoaded', () => {
-    let savedCategory = localStorage.getItem('selectedCategory');
-    if (savedCategory) {
-        openCategory(savedCategory);
+    // Спочатку перевіряємо хеш в URL
+    if (window.location.hash) {
+        let hash = window.location.hash.substring(1);
+        let parts = hash.split('/');
+        
+        if (parts.length === 1) {
+            openCategory(parts[0]);
+        } else if (parts.length === 2) {
+            openCategory(parts[0]);
+            setTimeout(() => {
+                const weaponName = parts[1].replace(/_/g, ' ').replace(/\..+$/, '');
+                currentWeapon = weaponName;
+                showFullImage(`/hunt_showdown_site/${parts[0]}/${encodeURIComponent(parts[1])}`, parts[1]);
+                updateWeaponDetails();
+            }, 500);
+        }
+    } 
+    // Якщо хешу немає, тоді перевіряємо localStorage
+    else {
+        let savedCategory = localStorage.getItem('selectedCategory');
+        if (savedCategory) {
+            openCategory(savedCategory);
+        }
     }
 });
         
@@ -1065,6 +1126,7 @@ function enhancedSortWeapons(sortType) {
 }
 
 // Функція для створення розширеного інтерфейсу сортування та пошуку
+// Функція для створення розширеного інтерфейсу сортування та пошуку з покращеним відображенням
 function createEnhancedSortingAndSearch() {
     const weaponDisplay = document.getElementById('weapon-display');
     const weaponContent = document.getElementById('weapon-content');
@@ -1124,6 +1186,13 @@ function createEnhancedSortingAndSearch() {
     const sortSelect = document.createElement('select');
     sortSelect.id = 'sort-select';
     
+    // Для мобільних пристроїв додаємо повну ширину
+    if (window.innerWidth <= 768) {
+        sortSelect.style.width = '100%';
+        sortLabel.style.display = 'block';
+        sortLabel.style.marginBottom = '5px';
+    }
+    
     // Базовий список опцій сортування
     const sortOptions = [
         { value: 'name-asc', text: 'Назва (А-Я)' },
@@ -1181,6 +1250,19 @@ function createEnhancedSortingAndSearch() {
     setTimeout(() => {
         searchInput.focus();
     }, 100);
+    
+    // Додаємо обробник зміни розміру вікна для адаптивності
+    window.addEventListener('resize', function() {
+        if (window.innerWidth <= 768) {
+            sortSelect.style.width = '100%';
+            sortLabel.style.display = 'block';
+            sortLabel.style.marginBottom = '5px';
+        } else {
+            sortSelect.style.width = 'auto';
+            sortLabel.style.display = 'inline';
+            sortLabel.style.marginBottom = '0';
+        }
+    });
 }
 
 // Функція для оновлення функціональності openCategory
