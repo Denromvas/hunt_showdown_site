@@ -334,6 +334,14 @@ item.innerHTML = `<img src='${downloadUrl}' alt='${category} weapon' onclick='sh
         });
 }
 
+// Автоматичне відновлення категорії після перезавантаження сторінки
+document.addEventListener('DOMContentLoaded', () => {
+    let savedCategory = localStorage.getItem('selectedCategory');
+    if (savedCategory) {
+        openCategory(savedCategory);
+    }
+});
+        
         function closeCategory() {
             document.getElementById('weapon-display').style.display = 'none';
             document.getElementById('main-page').classList.remove('page-hidden');
