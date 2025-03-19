@@ -8,11 +8,12 @@
 /* Стилі для контейнера елементів керування */
 
 /* CSS для мобільної бічної панелі */
+/* CSS для мобільної бічної панелі */
 @media (max-width: 768px) {
     .controls-container {
         position: fixed;
         top: 0;
-        left: -280px; /* Початково панель схована за межами екрану */
+        left: -280px;
         width: 280px;
         height: 100%;
         max-height: 100%;
@@ -21,7 +22,7 @@
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
-        transition: left 0.3s ease-out;
+        transition: left 0.3s ease-out, box-shadow 0.3s ease;
         z-index: 1100;
         overflow-y: auto;
         border-radius: 0;
@@ -30,10 +31,12 @@
         border-top: none;
         border-bottom: none;
         opacity: 1;
+        background-color: rgba(0, 0, 0, 0.9); /* Темніший фон */
     }
     
     .controls-container.active {
-        left: 0; /* Панель видима при активації */
+        left: 0;
+        box-shadow: 3px 0 10px rgba(0, 0, 0, 0.5); /* Тінь при активації */
     }
     
     .sidebar-header {
@@ -46,12 +49,62 @@
         padding-bottom: 10px;
     }
 
-   .toggle-filters-btn {
-        top: 15px;
-        left: 15px;
-        padding: 10px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); /* Сильніша тінь на мобільних */
-    }
+.toggle-filters-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: #333;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background 0.3s;
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toggle-filters-btn:hover {
+    background: #555;
+}
+
+/* Стиль для іконки "гамбургер" */
+.hamburger-icon {
+    display: inline-block;
+    width: 20px;
+    height: 16px;
+    position: relative;
+}
+
+.hamburger-icon span {
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background: white;
+    border-radius: 2px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+}
+
+.hamburger-icon span:nth-child(1) {
+    top: 0px;
+}
+
+.hamburger-icon span:nth-child(2) {
+    top: 7px;
+}
+
+.hamburger-icon span:nth-child(3) {
+    top: 14px;
+}
+
     .sidebar-title {
         color: #d4af37;
         font-size: 18px;
@@ -73,12 +126,16 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(0, 0, 0, 0.7); /* Темніша підкладка */
         z-index: 1050;
+        backdrop-filter: blur(2px); /* Легкий блюр для кращого ефекту */
+        transition: opacity 0.3s ease;
+        opacity: 0;
     }
     
     .sidebar-overlay.active {
         display: block;
+        opacity: 1;
     }
 
     .search-container, 
