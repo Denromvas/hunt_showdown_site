@@ -668,9 +668,9 @@
                             if (weaponData.price) {
                                 item.dataset.price = weaponData.price;
                             }
-                            if (weaponData.unlockRank) {
-                                item.dataset.unlockRank = weaponData.unlockRank;
-                            }
+                            //if (weaponData.unlockRank) {
+                            //    item.dataset.unlockRank = weaponData.unlockRank;
+                            //}
                             
                             // Додаємо атрибути для основних характеристик першого варіанту набоїв
                             if (weaponData.variants && weaponData.variants.length > 0) {
@@ -816,9 +816,9 @@
             if (weapon.price) {
                 addStat(statsElement, 'Ціна', `$${weapon.price}`);
             }
-            if (weapon.unlockRank) {
-                addStat(statsElement, 'Ранг відкриття', weapon.unlockRank);
-            }
+            //if (weapon.unlockRank) {
+            //    addStat(statsElement, 'Ранг відкриття', weapon.unlockRank);
+            //}
             
             // Додаємо характеристики поточного варіанту набоїв
             if (currentVariant.damage) {
@@ -1270,16 +1270,6 @@ function enhancedSortWeapons(sortType) {
                 const priceHighB = weaponDataB && weaponDataB.price ? weaponDataB.price : 0;
                 return priceHighB - priceHighA;
                 
-            case 'rank-asc': // За рангом розблокування (зростання)
-                const rankA = weaponDataA && weaponDataA.unlockRank ? weaponDataA.unlockRank : 100;
-                const rankB = weaponDataB && weaponDataB.unlockRank ? weaponDataB.unlockRank : 100;
-                return rankA - rankB;
-                
-            case 'rank-desc': // За рангом розблокування (спадання)
-                const rankHighA = weaponDataA && weaponDataA.unlockRank ? weaponDataA.unlockRank : 0;
-                const rankHighB = weaponDataB && weaponDataB.unlockRank ? weaponDataB.unlockRank : 0;
-                return rankHighB - rankHighA;
-                
             case 'damage-desc': // За пошкодженням (від високого до низького)
                 const damageA = weaponDataA && weaponDataA.variants && weaponDataA.variants[0] ? 
                     weaponDataA.variants[0].damage : 0;
@@ -1430,12 +1420,6 @@ function createEnhancedSortingAndSearch() {
         sortOptions.push(
             { value: 'price-asc', text: 'Ціна (від низької до високої)' },
             { value: 'price-desc', text: 'Ціна (від високої до низької)' }
-        );
-        
-        // Додаємо сортування за рангом розблокування
-        sortOptions.push(
-            { value: 'rank-asc', text: 'Ранг розблокування (зростання)' },
-            { value: 'rank-desc', text: 'Ранг розблокування (спадання)' }
         );
         
         // Додаємо сортування за пошкодженням і дальністю
