@@ -1246,6 +1246,7 @@ function enhancedSortWeapons(sortType) {
 }
 
 // Функція для створення розширеного інтерфейсу сортування та пошуку з згортанням/розгортанням
+// Функція для створення розширеного інтерфейсу сортування та пошуку з згортанням/розгортанням
 function createEnhancedSortingAndSearch() {
     const weaponDisplay = document.getElementById('weapon-display');
     const weaponContent = document.getElementById('weapon-content');
@@ -1256,11 +1257,50 @@ function createEnhancedSortingAndSearch() {
         existingControls.remove();
     }
     
+    // Видаляємо попередню підкладку, якщо вона є
+    const existingOverlay = document.querySelector('.sidebar-overlay');
+    if (existingOverlay) {
+        existingOverlay.remove();
+    }
+    
+    // Створюємо підкладку для мобільної версії
+    const sidebarOverlay = document.createElement('div');
+    sidebarOverlay.className = 'sidebar-overlay';
+    sidebarOverlay.addEventListener('click', toggleFilters);
+    weaponDisplay.appendChild(sidebarOverlay);
+    
     // Створюємо контейнер для елементів керування
     const controlsContainer = document.createElement('div');
     controlsContainer.className = 'controls-container';
-    if (filtersCollapsed) {
-        controlsContainer.classList.add('collapsed');
+    
+    if (window.innerWidth <= 768) {
+        // Мобільна версія
+        if (!filtersCollapsed) {
+            controlsContainer.classList.add('active');
+            sidebarOverlay.classList.add('active');
+        }
+        
+        // Додаємо заголовок для мобільної версії
+        const sidebarHeader = document.createElement('div');
+        sidebarHeader.className = 'sidebar-header';
+        
+        const sidebarTitle = document.createElement('h3');
+        sidebarTitle.className = 'sidebar-title';
+        sidebarTitle.textContent = 'Фільтри та сортування';
+        
+        const closeButton = document.createElement('button');
+        closeButton.className = 'close-sidebar';
+        closeButton.innerHTML = '&times;';
+        closeButton.addEventListener('click', toggleFilters);
+        
+        sidebarHeader.appendChild(sidebarTitle);
+        sidebarHeader.appendChild(closeButton);
+        controlsContainer.appendChild(sidebarHeader);
+    } else {
+        // Десктопна версія
+        if (filtersCollapsed) {
+            controlsContainer.classList.add('collapsed');
+        }
     }
     
     // Створюємо поле пошуку
@@ -1369,32 +1409,41 @@ function createEnhancedSortingAndSearch() {
     weaponDisplay.insertBefore(controlsContainer, weaponContent);
     
     // Фокусуємося на полі пошуку (для зручності), якщо фільтри розгорнуті
-    if (!filtersCollapsed) {
+    if ((window.innerWidth <= 768 && !filtersCollapsed) || 
+        (window.innerWidth > 768 && !filtersCollapsed)) {
         setTimeout(() => {
             searchInput.focus();
-        }, 100);
+        }, 300);
     }
-    
-    // Додаємо обробник зміни розміру вікна для адаптивності
-    window.addEventListener('resize', function() {
-        if (window.innerWidth <= 768) {
-            sortSelect.style.width = '100%';
-            sortLabel.style.display = 'block';
-            sortLabel.style.marginBottom = '5px';
-        } else {
-            sortSelect.style.width = 'auto';
-            sortLabel.style.display = 'inline';
-            sortLabel.style.marginBottom = '0';
-        }
-    });
 }
 
 // Функція для згортання/розгортання фільтрів
 function toggleFilters() {
+    const toggleFiltersBtn = document.getElementById('toggle-filters-btn');
     const controlsContainer = document.querySelector('.controls-container');
+    const sidebarOverlay = document.querySelector('.sidebar-overlay');
+    
     if (controlsContainer) {
-        controlsContainer.classList.toggle('collapsed');
-        filtersCollapsed = controlsContainer.classList.contains('collapsed');
+        if (window.innerWidth <= 768) {
+            // Для мобільних - переключаємо клас active
+            controlsContainer.classList.toggle('active');
+            filtersCollapsed = !controlsContainer.classList.contains('active');
+            
+            // Переключаємо підкладку
+            if (sidebarOverlay) {
+                sidebarOverlay.classList.toggle('active');
+            }
+            
+        } else {
+            // Для десктопів - переключаємо клас collapsed
+            controlsContainer.classList.toggle('collapsed');
+            filtersCollapsed = controlsContainer.classList.contains('collapsed');
+        }
+        
+        // Змінюємо вигляд кнопки гамбургера
+        if (toggleFiltersBtn) {
+            toggleFiltersBtn.classList.toggle('active');
+        }
         
         // Фокусуємося на полі пошуку, якщо фільтри розгорнуті
         if (!filtersCollapsed) {
@@ -1408,21 +1457,85 @@ function toggleFilters() {
     }
 }
 
-// Ініціалізація обробників подій
+// Перевірка після завантаження сторінки з скиданням стану (вирішення проблеми дублювання)
+window.addEventListener('load', function() {
+    // Очищаємо localStorage при перезавантаженні сторінки
+    if (window.performance && window.performance.navigation.type === 1) {
+        // Це перезавантаження (тип 1)
+        localStorage.removeItem('selectedCategory');
+        // Переспрямовуємо на головну сторінку (без хеша)
+        if (window.location.hash) {
+            window.location.hash = '';
+            return; // Припиняємо виконання, оскільки буде повторне завантаження
+        }
+    }
+    
+    // Звичайна перевірка URL і категорій
+    checkUrlAndDisplay();
+});
+
+// Перевірка URL і відображення відповідного вмісту
+function checkUrlAndDisplay() {
+    // Очищаємо прапорець завантаження категорії
+    window.categoryLoaded = false;
+    
+    if (window.location.hash) {
+        let hash = window.location.hash.substring(1);
+        let parts = hash.split('/');
+        
+        if (parts.length === 1) {
+            openCategory(parts[0]);
+        } else if (parts.length === 2) {
+            openCategory(parts[0]);
+            setTimeout(() => {
+                const weaponName = parts[1].replace(/_/g, ' ').replace(/\..+$/, '');
+                currentWeapon = weaponName;
+                showFullImage(`/hunt_showdown_site/${parts[0]}/${encodeURIComponent(parts[1])}`, parts[1]);
+                updateWeaponDetails();
+            }, 500);
+        }
+    } else {
+        // Якщо хешу немає, тоді перевіряємо localStorage
+        let savedCategory = localStorage.getItem('selectedCategory');
+        if (savedCategory) {
+            openCategory(savedCategory);
+        }
+    }
+}
+        
+// Оновлена функція ініціалізації обробників подій
 function initializeEventHandlers() {
     // Призначаємо обробник події для кнопки згортання/розгортання фільтрів
     const toggleFiltersBtn = document.getElementById('toggle-filters-btn');
     if (toggleFiltersBtn) {
+        toggleFiltersBtn.removeEventListener('click', toggleFilters); // Видаляємо, щоб уникнути дублювання
         toggleFiltersBtn.addEventListener('click', toggleFilters);
     }
     
     // Призначаємо обробник події для кнопки повернення до категорії
     const backToCategoryBtn = document.getElementById('back-to-category-btn');
     if (backToCategoryBtn) {
+        backToCategoryBtn.removeEventListener('click', backToCategory); // Видаляємо, щоб уникнути дублювання
         backToCategoryBtn.addEventListener('click', backToCategory);
     }
+    
+    // Додавання обробника зміни розміру вікна для адаптивності
+    window.removeEventListener('resize', handleResize); // Видаляємо, щоб уникнути дублювання
+    window.addEventListener('resize', handleResize);
 }
 
+  // Обробник зміни розміру вікна
+function handleResize() {
+    // Перестворюємо панель фільтрів при зміні розміру вікна між десктопним і мобільним режимами
+    const wasDesktop = window.innerWidth > 768;
+    setTimeout(() => {
+        const isDesktop = window.innerWidth > 768;
+        if (wasDesktop !== isDesktop) {
+            createEnhancedSortingAndSearch();
+        }
+    }, 300);
+}
+        
 // Ініціалізація та налаштування після завантаження сторінки
 document.addEventListener('DOMContentLoaded', function() {
     // Ініціалізуємо обробники подій
@@ -1432,7 +1545,7 @@ document.addEventListener('DOMContentLoaded', function() {
     checkUrlAndDisplay();
 });
 
-// Повний скрипт ініціалізації для замінити старі версії
+// Повний скрипт ініціалізації для заміни старих версій
 function initializeAll() {
     // Ініціалізуємо обробники подій
     initializeEventHandlers();
@@ -1440,6 +1553,8 @@ function initializeAll() {
     // Перезаписуємо всі потрібні функції
     window.toggleFilters = toggleFilters;
     window.createEnhancedSortingAndSearch = createEnhancedSortingAndSearch;
+    window.checkUrlAndDisplay = checkUrlAndDisplay;
+    window.handleResize = handleResize;
     
     console.log('Всі функції успішно ініціалізовано');
 }
