@@ -45,7 +45,13 @@
         border-bottom: 1px solid #555;
         padding-bottom: 10px;
     }
-    
+
+   .toggle-filters-btn {
+        top: 15px;
+        left: 15px;
+        padding: 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); /* Сильніша тінь на мобільних */
+    }
     .sidebar-title {
         color: #d4af37;
         font-size: 18px;
@@ -545,7 +551,7 @@
         let currentWeapon = '';
         let currentAmmo = 'standard';
         let weaponsData = null;
-        let filtersCollapsed = false;
+        let filtersCollapsed = true;
         
         // Завантажити дані про зброю
         fetch('/hunt_showdown_site/weapons_data.json')
